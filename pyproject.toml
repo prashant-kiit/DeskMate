@@ -12,7 +12,7 @@ dependencies = [
 ]
 
 [project.scripts]
-deskmate = "deskmate:main"
+deskmate-dev = "deskmate:main"
 
 [build-system]
 requires = ["uv_build>=0.12.2,<0.13.0"]
