@@ -4,17 +4,30 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from deskmate.dao.projects import Project
 from deskmate.db import get_db
-from deskmate.dto.projects import ProjectCreateRequest, ProjectCreateResponse, ProjectFetchResponse
+from deskmate.dto.projects import (
+    ProjectAllFetchResponse,
+    ProjectCreateRequest,
+    ProjectCreateResponse,
+    ProjectOneFetchResponse,
+)
 
 router = APIRouter(prefix="/projects", tags=["projects"])
 
-@router.get("", response_model=list[ProjectFetchResponse])
+@router.get("", response_model=list[ProjectAllFetchResponse])
 async def get_projects(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(Project))
+    result = await db.execute(select(Project.id, Project.name))
     
-    projects = result.scalars().all()
+    projects = result.all()
 
     return projects
+
+@router.get("{project_id}", response_model=ProjectOneFetchResponse)
+async def get_project(project_id: int, db: AsyncSession = Depends(get_db)):
+    result = await db.execute(select(Project).where(Project.id==project_id))
+    
+    project = result.scalars().one()
+
+    return project
 
 @router.post("", response_model=ProjectCreateResponse)
 async def create_project(new_project: ProjectCreateRequest, db: AsyncSession = Depends(get_db)):

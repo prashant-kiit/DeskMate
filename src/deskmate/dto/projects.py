@@ -3,8 +3,11 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-class ProjectFetchResponse(BaseModel):
-    id:int
+class ProjectAllFetchResponse(BaseModel):
+    id: int
+    name: str
+class ProjectOneFetchResponse(BaseModel):
+    id: int
     name: str
     desc: str | None
     owner: str
