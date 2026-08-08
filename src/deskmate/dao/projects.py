@@ -9,7 +9,7 @@ from deskmate.db import Base
 class Project(Base):
     __tablename__ = "projects"
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    name: Mapped[str] = mapped_column(String(100), nullable=False, unique=True)
     desc: Mapped[str] = mapped_column(String(1000), nullable=True)
     owner: Mapped[str] = mapped_column(String(100), nullable=False)
     created_at: Mapped[datetime] = mapped_column(

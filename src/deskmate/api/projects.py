@@ -4,14 +4,16 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from deskmate.dao.projects import Project
 from deskmate.db import get_db
+from deskmate.dto.projects import ProjectCreateRequest, ProjectCreateResponse
 
 router = APIRouter(prefix="/projects", tags=["projects"])
 
-@router.post("", response_model=None, status_code=status.HTTP_201_CREATED)
-async def create_project(db: AsyncSession = Depends(get_db)):
+@router.post("", response_model=ProjectCreateResponse)
+async def create_project(new_project: ProjectCreateRequest, db: AsyncSession = Depends(get_db)):
     project = Project(
-        name="Test-0",
-        owner="User-Test-0" 
+        name=new_project.name,
+        desc=new_project.desc,
+        owner= "Prashant"
     )
     
     db.add(project)
