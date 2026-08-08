@@ -8,7 +8,8 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
-from deskmate.dao.projects import Project
+from deskmate.dao.projects import Project  # noqa: F401
+from deskmate.dao.tasks import Task  # noqa: F401
 from deskmate.db import Base
 
 # this is the Alembic Config object, which provides
