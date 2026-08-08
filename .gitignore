@@ -3,4 +3,5 @@ QUERIES.md
 *_cache
 __pycache__
 .venv
+.env
 

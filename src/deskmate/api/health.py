@@ -1,7 +1,7 @@
 
 from fastapi import APIRouter, status
 
-from deskmate.model.health import HealthOutput, HealthResponse
+from deskmate.dto.health import HealthOutput, HealthResponse
 
 router = APIRouter(prefix="/health", tags=["health"])
 

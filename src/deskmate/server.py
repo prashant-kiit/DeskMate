@@ -1,7 +1,10 @@
 import uvicorn
+from dotenv.main import load_dotenv
 from fastapi import FastAPI
 
-from deskmate.api import health, projects
+load_dotenv()
+
+from deskmate.api import health, projects  # noqa: E402
 
 app = FastAPI(root_path="/api")
 
