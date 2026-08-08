@@ -1,6 +1,6 @@
 import datetime
 
-from sqlalchemy import DateTime, Integer, String, func
+from sqlalchemy import DateTime, ForeignKey, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from deskmate.db import Base
@@ -18,4 +18,4 @@ class Task(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now()
     )
-    project_id: Mapped[int] = mapped_column(Integer(), nullable=False)
+    project_id: Mapped[int] = mapped_column(Integer(), ForeignKey("projects.id"), nullable=False)

@@ -9,7 +9,7 @@ from deskmate.dto.tasks import TaskCreateRequest, TaskCreateResponse, TaskOneFet
 
 router = APIRouter(prefix="/tasks", tags=["tasks"])
 
-@router.get("{task_id}", response_model=TaskOneFetchResponse)
+@router.get("/{task_id}", response_model=TaskOneFetchResponse)
 async def get_project(task_id: int, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Task).where(Task.id==task_id))
     
