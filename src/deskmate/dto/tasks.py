@@ -3,6 +3,9 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
+class TaskAllFetchResponse(BaseModel):
+    id: int
+    name: str
 class TaskOneFetchResponse(BaseModel):
     id: int
     name: str

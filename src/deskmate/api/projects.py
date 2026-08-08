@@ -11,7 +11,7 @@ from deskmate.dto.projects import (
     ProjectCreateResponse,
     ProjectOneFetchResponse,
 )
-from deskmate.dto.tasks import TaskOneFetchResponse
+from deskmate.dto.tasks import TaskAllFetchResponse
 
 router = APIRouter(prefix="/projects", tags=["projects"])
 
@@ -31,12 +31,11 @@ async def get_project(project_id: int, db: AsyncSession = Depends(get_db)):
 
     return project
 
-@router.get("/{project_id}/tasks", response_model=list[TaskOneFetchResponse])
+@router.get("/{project_id}/tasks", response_model=list[TaskAllFetchResponse])
 async def get_tasks_by_project(project_id: int, db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(Task).where(Task.id==project_id))
+    result = await db.execute(select(Task.id, Task.name).where(Task.id==project_id))
     
-    project = result.scalars().all()
-    print(project)
+    project = result.all()
 
     return project
 
