@@ -1,8 +1,5 @@
 import uvicorn
-from dotenv.main import load_dotenv
 from fastapi import FastAPI
-
-load_dotenv()
 
 from deskmate.api import health, projects  # noqa: E402
 
