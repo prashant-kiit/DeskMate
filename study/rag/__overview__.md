@@ -1,13 +1,25 @@
-**What the book says** (Chapter 6, "RAG and Agents" — section *RAG*, pp. 253–257):
+# Overview
 
-RAG is defined as a technique that enhances a model's generation by retrieving relevant information from external memory sources. Those sources can be an internal database, a user's previous chat sessions, or the internet.
+**What is RAG**:
 
-Huyen traces the lineage in two steps. The retrieve-then-generate pattern came first, in Chen et al. (2017), "Reading Wikipedia to Answer Open-Domain Questions," where the system retrieved the five most relevant Wikipedia pages and a model read them to produce an answer. The term *retrieval-augmented generation* itself was coined by Lewis et al. (2020), which proposed RAG for knowledge-intensive tasks where all the available knowledge can't be fed into the model directly. The key move is selectivity: only the information most relevant to the query, as determined by the retriever, gets put into the model. Lewis et al. found this yields more detailed responses while reducing hallucinations.
+RAG is defined as a technique that enhances a model's generation by retrieving relevant information from external memory sources. Those sources can be an internal database, a user's previous chat sessions, or the internet. RAG is a special case of an agent where the retriever is simply one tool.
 
-**Architecture** (*RAG Architecture*, p. 256): a RAG system has two components — a **retriever** that pulls information from external memory, and a **generator** that produces a response from what was retrieved. The retriever itself has two functions: *indexing* (processing data so it can be retrieved quickly later) and *querying* (sending a query to fetch relevant data). The book stresses that the success of a RAG system depends on the quality of its retriever. In the original paper the retriever and generator were trained jointly; today they're usually trained separately and often assembled from off-the-shelf parts, though Huyen notes that finetuning the whole system end-to-end can improve performance significantly.
+The key move is selectivity: only the information most relevant to the query, as determined by the retriever, gets put into the model. This yields more detailed responses while reducing hallucinations.
 
-In practice (p. 257), documents are split into chunks rather than retrieved whole — otherwise context length becomes arbitrarily long — and the retrieved chunks are joined with the user prompt through minor post-processing to form the final prompt fed to the generator. Retrievers come in two families the book develops at length: term-based (BM25, Elasticsearch — lightweight, strong baselines) and embedding-based (heavier, potentially better). Retrieval quality is measured with **context precision** and **context recall** (p. 264).
+**Architecture**:
 
-Two framings from the chapter worth carrying forward: RAG was *originally* developed to overcome context-window limits, but it also enables more efficient use of information — better responses at lower cost (chapter Summary, p. 305). And RAG is classed as a **prompt-based method**, meaning it improves output purely through inputs without modifying the model — which is why the book positions it opposite finetuning, and describes RAG as a special case of an agent where the retriever is simply one tool.
+A RAG system has two components — a **retriever** that pulls information from external memory, and a **generator** that produces a response from what was retrieved. The retriever itself has two functions: *indexing* (processing data so it can be retrieved quickly later) and *querying* (sending a query to fetch relevant data). 
 
-**My own note, not the book's words:** the definition is deliberately broader than the vector-database pipeline most people picture. Nothing in Huyen's definition requires embeddings or a vector store — a SQL lookup or a keyword search over chat history is equally RAG under this framing.
+**Flow**:
+The success of a RAG system depends on the quality of its retriever. In practice, documents are split into chunks rather than retrieved whole — otherwise context length becomes arbitrarily long — and the retrieved chunks are joined with the user prompt through minor post-processing to form the final prompt fed to the generator. 
+
+**Types**:
+Retrievers come in two families the book develops at length: term-based (BM25, Elasticsearch — lightweight, strong baselines) and embedding-based (heavier, potentially better). 
+
+**RAG Eval**:
+Retrieval quality is measured with **context precision** and **context recall** (p. 264).
+
+Two framings from the chapter worth carrying forward: RAG was *originally* developed to overcome context-window limits, but it also enables more efficient use of information — better responses at lower cost (chapter Summary, p. 305). 
+
+**RAG vs Fine Tuning**
+And RAG is classed as a **prompt-based method**, meaning it improves output purely through inputs without modifying the model — which is why the book positions it opposite finetuning.
