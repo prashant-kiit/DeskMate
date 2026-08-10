@@ -1,13 +1,18 @@
-**What the book says** (Chapter 6, "RAG and Agents" — section *RAG Architecture*, pp. 256–257):
+# Architecture
 
-A RAG system has two components, sitting on top of an external memory store:**What the book says** (Chapter 6, "RAG and Agents" — section *RAG Architecture*, pp. 256–257), matching the book's own Figure 6-2:
+**Basics**:
+
+A RAG system has two components, sitting on top of an external memory store.
 
 **Two components sit on top of an external memory source:**
 
-1. **Retriever** — pulls information from external memory. The book gives it exactly two jobs: **indexing** (processing data so it can be retrieved quickly later) and **querying** (sending a query to fetch data relevant to it). How you index depends entirely on how you plan to retrieve later.
+1. **Retriever** — pulls information from external memory. Have two jobs: **indexing** (processing data so it can be retrieved quickly later) and **querying** (sending a query to fetch data relevant to it). How you index depends entirely on how you plan to retrieve later.
+
 2. **Generator** — a generative model that produces a response based on what the retriever hands it.
 
-**The flow:** the user's prompt goes to the retriever, which pulls context relevant to that query from external memory and passes it — along with the original prompt, joined through minor post-processing — to the generative model, which returns the response.
+3. **Chain of Thought**
+
+**The flow:** the user's prompt goes to the retriever, which pulls context relevant to that query from external memory and passes it — along with the original prompt, joined through minor post-processing — to the generative model, which returns the response. This is a iterative process, spread across a chain of thought.
 
 **Design detail the book flags:** in the original 2020 paper, retriever and generator were trained jointly. In today's systems they're usually trained *separately*, often assembled from off-the-shelf parts — though Huyen notes end-to-end finetuning of the whole system can meaningfully improve performance.
 
@@ -22,13 +27,13 @@ Retrieval Algorithms?
 1. Term Retreival
 
 - Write -> Raw Data is 
-  - Chunked into Documents
-  - Documents are Ranked based on Scores against a Representative Query 
-  - Query Terms and Document are invertedly Indexed in Ranked Order for easy Read operation
+  - Chunking: Chunked into Documents
+  - Sorting: Documents are Ranked based on Scores against a Representative Query 
+  - Indexing: Query Terms and Document are invertedly Indexed in Ranked Order for easy Read operation
 - Read -> Documents are
-  - Searched using Inverted Index of Query Terms to Document (These Indexes store in About Score also)
-  - Documents are Sorted/Reranked and Filtered based in Score as per the Use Case 
-  - Selected Documents are Aggregated into a Single Response
+  - Indexing: Searched using Inverted Index of Query Terms to Document (These Indexes store in About Score also)
+  - Sorting: Documents are Sorted/Reranked and Filtered based in Score as per the Use Case 
+  - Dechunking: Selected Documents are Aggregated into a Single Response
 - Ranking During Writing
   - Same as Reading just use a Representative Query as per Business Use Case
 - Ranking During Reading
@@ -40,7 +45,7 @@ Retrieval Algorithms?
   - Here, Document is a Chunk 
   - Example Algo is BM25 (Data Structure used is Inverted Index ie. Term to Document Maps) used in SAAS called ElasticSearch
 
-1. Embedding Retrevial
+2. Embedding Retrevial
 
 - Same as Term Retreival plus Embeddings
 - Convert Documents to Embedding
@@ -49,7 +54,16 @@ Retrieval Algorithms?
 - Fetch the Documents with Highest Cumulative Score Score
 - Embedding Based Scoring of a Document against at Query is Nearest-Neighbor (NN) problem. Solved by Various NN algorithms
 
+Other Algorithms involved in Retrieval?
+- Chunking - ?
+- Scoring - BM25 (Terms + Embeddings), Cosine Similarity [K Means Compression + Vector Quantization] (Embeddings)
+- Sorting - Merge Sort, Quick/Pivot Sort (Terms + Embedding)
+- Indexing - Normal Indexing as in Non Vector DBs using Binary Tree or Self Balancing Tree (Terms + Embeddings), NN   
+- Searching/Traversal - BFS, DFS (Terms + Embedding)
+- Dechunking - ?
+
 What are the tradeoffs b/w the two retreival methods? When to use VectorDB or Non-VectorDB?
+- If Text baed Data then NonVector else Vector
 
 Retrieval Optimization? Chunking? Indexing?
 

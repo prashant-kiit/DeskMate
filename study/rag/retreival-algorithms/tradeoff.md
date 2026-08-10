@@ -34,3 +34,12 @@ The book doesn't frame this as a binary "pick vector DB or don't" decision — i
 - How long does indexing take, and how much bulk add/delete can it handle at once?
 - What's query latency across different retrieval algorithms?
 - If managed, is pricing based on document/vector volume or query volume?
+
+**For actually choosing a solution (Concise)**,
+- Infra Cost
+- Latency (Quick Response)
+- Scale (For Everyone)
+- Available (Across all the time and region)
+To determine above factors understand:
+- Architecture (Microservices) of Agent and Model
+- Design (DSA) of Agent and Model
