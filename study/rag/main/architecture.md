@@ -69,6 +69,10 @@ Retrieval Optimization? Chunking? Indexing?
 
 How to eval the RAG? Context Recall and Context Precision? Benchmarks like **MTEB**, which scores embeddings across retrieval, classification, and clustering tasks?
 
+What are Vector normalize embeddings?
+
+How Probalility is used for Next Token Prediction?
+
 Core AI Questions:
 
 - How LLM and VectorDB works? 
