@@ -55,36 +55,9 @@ Retrieval Algorithms?
 - Embedding Based Scoring of a Document against at Query is Nearest-Neighbor (NN) problem. Solved by Various NN algorithms
 
 Other Algorithms involved in Retrieval?
-- Chunking - ?
+- Chunking - Recursiion, Strutural Unit Based, Token and Semantics Based
 - Scoring - BM25 (Terms + Embeddings), Cosine Similarity [K Means Compression + Vector Quantization] (Embeddings)
 - Sorting - Merge Sort, Quick/Pivot Sort (Terms + Embedding)
 - Indexing - Normal Indexing as in Non Vector DBs using Binary Tree or Self Balancing Tree (Terms + Embeddings), NN   
 - Searching/Traversal - BFS, DFS (Terms + Embedding)
-- Dechunking - ?
-
-What are the tradeoffs b/w the two retreival methods? When to use VectorDB or Non-VectorDB?
-- If Text baed Data then NonVector else Vector
-
-Retrieval Optimization? Chunking? Indexing?
-
-How to eval the RAG? Context Recall and Context Precision? Benchmarks like **MTEB**, which scores embeddings across retrieval, classification, and clustering tasks?
-
-What are Vector normalize embeddings?
-
-How Probalility is used for Next Token Prediction?
-
-Core AI Questions:
-
-- How LLM and VectorDB works? 
-- How tokenization of the Query or External Data happens inside LLM?
-- Deep Dive in BM25 and NN Search
-
-Core AI Topics/Hints:
-
-- Tokenization. Eg: Split the String by WhiteSpace
-- Make a Parse Tree ie. AST
-- LLM -> Transformer -> Layers of Neural Network; NL ares Complex Decision Trees with Weights and Biases
-- Entity, Parameters, Matrix row, Vector
-- Tokenization -> Attention -> FeedForward -> Tokenization ... Recursive nature like DFS or BFS in Graphs
-- In Vector DB, Graphs and Vectors both are Matrix based and can represent each other
-
+- Dechunking - Parent - Child Method
