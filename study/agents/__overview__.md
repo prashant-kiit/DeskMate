@@ -96,3 +96,9 @@ Multi-agent systems taken to the extreme. Instead of a fixed hierarchy with a cl
 - Tasks can run **linearly** or **in parallel** (or a hybrid).
 - Five key **design patterns**: ReAct, Reflection, Plan & Execute, Multi-Agent Systems, Swarm.
 - Three key **frameworks** in 2026: LangGraph, CrewAI, AutoGen — pick based on your use case.
+
+## Sources
+https://www.youtube.com/watch?v=TZMdEg1ZoIo
+https://www.youtube.com/watch?v=vbKKQATMZ-0
+https://www.youtube.com/watch?v=-zBbij9rrEI
+https://www.youtube.com/watch?v=mwN75EiGfCE
