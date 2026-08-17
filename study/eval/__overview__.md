@@ -43,3 +43,7 @@ When to Use Which
 
 Low Temp / Low Top-K  ───► Focuses on High Precision (Accurate, safe, factual)
 High Temp / High Top-K ───► Focuses on High Recall (Creative, broad, exhaustive)
+
+----
+
+nDCG (Normalized Discounted Cumulative Gain) measures how well a ranked list puts the most relevant results near the top, giving higher weight to higher-ranked positions.
