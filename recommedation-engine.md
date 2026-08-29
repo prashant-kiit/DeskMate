@@ -9,7 +9,7 @@
 - RAG Query
     - System Query (Sameness for SQL and Similarity for Vector)
     - User Activity Log
-- Retreival : SQL + Vector (Hybrid)
+- RAG Retreival : SQL + Vector (Hybrid)
     - SQL : Lexical, Fuzzy, Leventstein 
     - Vector : Semantic, Similarity, KNN
 - Content Metadata for SQLDB Record (Content Info like Author, Post Day, Category etc.) and VectorDB Vector (Content like Video, Text etc.)
@@ -24,7 +24,7 @@
 - Context Rewriting
 - LLM (BERT)
 - Response containing Lexical Id (SQL Record SHA Hash) and Semantic Id (VectorDB Embedding Residual Quantizations)
-- Use Lexical Id and Semantic Id to search and return Actual Documents from SQL DB and Vector DB [Leveage the ID Based Trie Index on DB Records and Vectors to Implement Constraint Encoding/Decoding]
+- Use Lexical Id and Semantic Id to search and return Actual Documents from SQL DB and Vector DB [Leverage Pydantic and Text-To-Query having those IDs against Trie Index (Can Lie in GraphDB po vLLM-Trie as GrapghRAG) on DB Records and Vectors to Implement Constraint Encoding/Decoding]
 - DB Query:
     - System Query (Lexical Id and Semantic Id)
     - Object Storage (Content like Video, Text etc.)
@@ -51,11 +51,17 @@ RAG Ingestion Pipeline
     - Index (Clustering) : LSH (Bucketing), HSWN (Small Worlds), Quantization & Centroid, Cosine Similarity, TextTiling
     - Store
 - Traget: VectorDB
-- Graph Based RAG
+- Create Knowledge Graph for RAG using LLM by find relationships among Records and Vectors 
 
 -----
 
 LLM Retrieval vs RAG Retreival
 - LLM : Static Data and Expensive
 - RAG : Dyanmic Data and Cheap
+
+-----
+
+Classical RAG vs Graph RAG
+- Classical : Dynamic Data, Simple Reasoning
+- Graph : Static Data, Complex Reasoning
 
