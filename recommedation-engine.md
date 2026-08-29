@@ -24,7 +24,7 @@
 - Context Rewriting
 - LLM (BERT)
 - Response containing Lexical Id (SQL Record SHA Hash) and Semantic Id (VectorDB Embedding Residual Quantizations)
-- Use Lexical Id and Semantic Id to search and return Actual Documents from SQL DB and Vector DB
+- Use Lexical Id and Semantic Id to search and return Actual Documents from SQL DB and Vector DB [Leveage the ID Based Trie Index on DB Records and Vectors to Implement Constraint Encoding/Decoding]
 - DB Query:
     - System Query (Lexical Id and Semantic Id)
     - Object Storage (Content like Video, Text etc.)
@@ -35,6 +35,23 @@
 - AB Testing
     - Compare Old and New System
     - Metrics : Precision (Relevance), Recall (Completeness)
+
+-----
+
+RAG Ingestion Pipeline
+- Source: Object Storage
+- Transform
+    - Read, 
+    - WebM Conversion for Standard Format, 
+    - XML Conversion for Parsable Foramt, 
+    - Parse Data to Standard Structure,
+    - Clean Data to Remove Extras, 
+    - Chunk Corpus into Units + Add Metadata to each Chunk,
+    - Create Embedding from Units and Metadata 
+    - Index (Clustering) : LSH (Bucketing), HSWN (Small Worlds), Quantization & Centroid, Cosine Similarity, TextTiling
+    - Store
+- Traget: VectorDB
+- Graph Based RAG
 
 -----
 
