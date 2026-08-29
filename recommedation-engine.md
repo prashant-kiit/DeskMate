@@ -51,7 +51,7 @@ RAG Ingestion Pipeline
     - Index (Clustering) : LSH (Bucketing), HSWN (Small Worlds), Quantization & Centroid, Cosine Similarity, TextTiling
     - Store
 - Traget: VectorDB
-- Create Knowledge Graph for RAG using LLM by find relationships among Records and Vectors 
+- Create Knowledge Graph for RAG using LLM (NER for identifiy nodes and relationship types and Domain Models) by find relationships among Records and Vectors 
 
 -----
 
