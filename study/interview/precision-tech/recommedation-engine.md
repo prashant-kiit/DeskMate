@@ -42,8 +42,9 @@ RAG Ingestion Pipeline
 - Source: Object Storage
 - Transform
     - Read, 
+    - Research (use LLM) and Annotate the data
     - WebM Conversion for Standard Format, 
-    - XML Conversion for Parsable Foramt, 
+    - XML Conversion for Parsable Format, 
     - Parse Data to Standard Structure,
     - Clean Data to Remove Extras, 
     - Chunk Corpus into Units + Add Metadata to each Chunk,
