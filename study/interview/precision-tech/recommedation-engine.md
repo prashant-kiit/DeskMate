@@ -48,8 +48,8 @@ RAG Ingestion Pipeline
         - XML Conversion for Parsable Format, 
         - Parse Data to Standard Structure,
         - Clean Data to Remove Extras, 
-        - Chunk Corpus into Units + Add Metadata to each Chunk,
-        - Create Embedding from Units and Metadata 
+        - Chunk Corpus into Units + Add Metadata to each Chunk (Use Record Id and Semantic ID for relationship),
+        - Create Embedding from Units and Create Records from Metadata 
         - Index (Clustering) : LSH (Bucketing), HSWN (Small Worlds), Quantization & Centroid, Cosine Similarity, TextTiling
         - Store
     - Traget: VectorDB
