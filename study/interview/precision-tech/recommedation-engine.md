@@ -39,19 +39,30 @@
 -----
 
 RAG Ingestion Pipeline
-- Source: Object Storage
-- Transform
-    - Read, 
-    - Research (use LLM, Pandas, NumPy) and Annotate the data,
-    - WebM Conversion for Standard Format, 
-    - XML Conversion for Parsable Format, 
-    - Parse Data to Standard Structure,
-    - Clean Data to Remove Extras, 
-    - Chunk Corpus into Units + Add Metadata to each Chunk,
-    - Create Embedding from Units and Metadata 
-    - Index (Clustering) : LSH (Bucketing), HSWN (Small Worlds), Quantization & Centroid, Cosine Similarity, TextTiling
-    - Store
-- Traget: VectorDB
+- Semantics:
+    - Source: Object Storage
+    - Transform
+        - Read, 
+        - Research (use LLM, Pandas, NumPy) and Annotate the data,
+        - WebM Conversion for Standard Format, 
+        - XML Conversion for Parsable Format, 
+        - Parse Data to Standard Structure,
+        - Clean Data to Remove Extras, 
+        - Chunk Corpus into Units + Add Metadata to each Chunk,
+        - Create Embedding from Units and Metadata 
+        - Index (Clustering) : LSH (Bucketing), HSWN (Small Worlds), Quantization & Centroid, Cosine Similarity, TextTiling
+        - Store
+    - Traget: VectorDB
+- Lexica:
+    - Source: Data Warehouse (Fed by Application DB)
+    - Transform
+        - Read, 
+        - Research (use SQL)
+        - Annotate
+        - Normalize
+        - Index
+        - Store
+    - Target: SQLDB
 - Create Knowledge Graph for RAG using LLM (NER for identifiy nodes and relationship types and Domain Models) by find relationships among Records and Vectors 
 
 -----
