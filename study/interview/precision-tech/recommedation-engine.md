@@ -77,3 +77,7 @@ Classical RAG vs Graph RAG
 - Classical : Dynamic Data, Simple Reasoning
 - Graph : Static Data, Complex Reasoning
 
+-----
+
+Use IlamaIndex for RAG
+
