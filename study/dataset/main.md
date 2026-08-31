@@ -108,6 +108,27 @@ coordinating the transitioning between them. If you don’t know what you’re d
     5. Realizing that there’s not enough data for topic X, manually create a set of 100instruction templates about X. Use an AI model to synthesize 2,000 instructions using these 10 templates.
     6. Manually annotate these 2,000 synthetic instructions. Now your dataset has a total of 11,000 examples.
 
+### Data Generation
+- Ways:
+    1. Take Real Data Comparable to our Target Data 
+    2. Mimic that Real Data to Synthensize (Derive) New Traget Data (Use AI)
+    3. Deploy the Model and gather Real Production Data
+    4. Augment the Real Production Data by extending (along similar patterns) it (Use AI)
+
+### Data Synthezise
+- Use when real-world data is scarce 
+- Helps:
+    - To increase data quantity
+    - To increase data coverage
+    - To increase data quality
+    - Use when real-world data is scarce due to legal or some other reasons
+- EG: Data Synthesis for Eval/FineTuning a PII, PHI Redactor Model
+    - Take Real Conversation Transcripts of All Types: Doctor - Doctor, Nurse - Nurse, Doctor - Nurse etc. [Gives Coverage and Quality]
+    - Take PHI Data from Open Medical Sources [Give Quality]
+    - Asked AI to generate the PII Data based on Varying Factors of Country, Region, Religion, Professions, Experiences etc. [Gives Coverage]
+    - Use LLM to generate the Test Data based Augmented by Above Three [Give Quanity]
+
+***Note***: Model distillation in LLMs is the process of training a smaller student LLM to mimic a larger teacher LLM by using the teacher’s generated outputs or token probabilities as targets; typically, the student is optimized using KL-divergence/distillation loss, resulting in a faster, cheaper model that retains much of the teacher’s performance.
 
 Pending:
-Standard Rule for Data Annotation : Features and Labels
+Standard Rule for Data Annotation : Features and Labels (https://www.youtube.com/results?search_query=how+to+label+data+for+ml)
