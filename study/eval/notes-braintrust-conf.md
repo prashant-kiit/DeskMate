@@ -1,4 +1,5 @@
 # AI Evals: A Practical Tutorial
+### Source : https://www.youtube.com/watch?v=9iN-cPnp7xg&list=PLcfpQ4tk2k0XZS6wXjyB_8zuZBXHFTwYM&index=43
 
 Concepts only. No specific tools, languages, or vendors. Everything here comes from the workshop transcript.
 
