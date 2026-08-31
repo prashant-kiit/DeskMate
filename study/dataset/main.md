@@ -134,6 +134,7 @@ coordinating the transitioning between them. If you don’t know what you’re d
 - Manual generation : Human Used
 - Non AI (Traditional)
     - Rule-Based: Predefined rules and templates + Randomizer, Data Perbutation (Add Noise to Data Deliberately for Testing Agents)
+    - Simulate a Real World Scenario to Create Real Like Data like Developer faking to be a Interviewer to test AI Interviewer App
 - AI
     - 
 
