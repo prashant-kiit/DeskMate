@@ -10,6 +10,7 @@
     - Compare Function(Input) and Data to Decide
     - Based on the Decision, New Node (using an Edge) be chosen
 - So, to Improve the Model, We need to work on Data and Reasoning_Function of NN in Model
+- HOWEVER, IT IS BETTER TO USE MODEL FOR REASONING (FINE TUNE FOR REASONING) AND RAG FOR DATA
 
 ***Note***: Model Centric AI vs Data Centric AI
 
@@ -127,6 +128,14 @@ coordinating the transitioning between them. If you don’t know what you’re d
     - Take PHI Data from Open Medical Sources [Give Quality]
     - Asked AI to generate the PII Data based on Varying Factors of Country, Region, Religion, Professions, Experiences etc. [Gives Coverage]
     - Use LLM to generate the Test Data based Augmented by Above Three [Give Quanity]
+
+### Methods of Gata Generation (Synthensis and Augmentation)
+- Procedural generation : Software Used
+- Manual generation : Human Used
+- Non AI (Traditional)
+    - Rule-Based: Predefined rules and templates + Randomizer, Data Perbutation (Add Noise to Data Deliberately for Testing Agents)
+- AI
+    - 
 
 ***Note***: Model distillation in LLMs is the process of training a smaller student LLM to mimic a larger teacher LLM by using the teacher’s generated outputs or token probabilities as targets; typically, the student is optimized using KL-divergence/distillation loss, resulting in a faster, cheaper model that retains much of the teacher’s performance.
 
