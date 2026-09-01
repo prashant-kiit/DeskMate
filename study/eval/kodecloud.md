@@ -18,11 +18,11 @@ AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test
 - (Human Jugdement) <- Dashboard (Metrics - Score) <- (LLM + Human)[Test DataSet] <- Observabilty Logs + SME Synthetic Data <- Target
         |                        |___________________________________________^                                     ^
         |__________________________________________________________________________________________________________|
-- Test Dataset:
+- Test Dataset/Rubrik:
     - (Metric_0 : (Query, Response), Total_Score, Verdict (Threshold on Score): PASS | FAIL, Reason for Total_Score Metric Wise, Human_Bias)
     - (Metric_1 : (Query, Response), Total_Score, Verdict (Threshold on Score): PASS | FAIL, Reason for Total_Score Metric Wise, LLM_Bias)
     - (Metric_2 : (Query, Response), Total_Score, Verdict (Threshold on Score): PASS | FAIL, Reason for Total_Score Metric Wise, Both_Bias)
-    - ...
+    - ... 
     - Point/Score System:
         - Metric_0 : Sub_Score * Bias_Factor
         - Metric_1 : Sub_Score * Bias_Factor
