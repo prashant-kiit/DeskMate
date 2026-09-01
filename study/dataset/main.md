@@ -123,7 +123,7 @@ coordinating the transitioning between them. If you don’t know what you’re d
     - To increase data coverage
     - To increase data quality
     - Use when real-world data is scarce due to legal or some other reasons
-- EG: Data Synthesis for Eval/FineTuning a PII, PHI Redactor Model
+- Example: Data Synthesis for Eval/FineTuning a PII, PHI Redactor Model
     - Take Real Conversation Transcripts of All Types: Doctor - Doctor, Nurse - Nurse, Doctor - Nurse etc. [Gives Coverage and Quality]
     - Take PHI Data from Open Medical Sources [Give Quality]
     - Asked AI to generate the PII Data based on Varying Factors of Country, Region, Religion, Professions, Experiences etc. [Gives Coverage]
