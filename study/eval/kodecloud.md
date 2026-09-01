@@ -49,9 +49,28 @@ AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test
         - Accuracy
         - Security (Red Teaming)
     - LLM Judged or Human Judged or Both
+    - Mesures: Average, P50, P99
 - Human Jugdement:
     - Based on Truth Table
         - Target is Wrong
         - Eval is Wrong
-
-***Note***: Experiment are Evaluations are Same
+- System Prompt:
+    - Role: AI Evalutor
+    - Task: Evalutate the Agent to be Production ready
+    - Method:
+        - Use Dataset as baseline
+        - Take User Query and evalute against he respinses in the Dataset
+        - Generate (use Exactness and Smeantics both h hyrid approach) Eval Report as per the Format give below
+    - Output Format:
+        - (Metric_0 : (Query, Response), Total_Score, Verdict (Threshold on Score): PASS | FAIL, Reason for Total_Score Metric Wise, Human_Bias)
+    - Guardrails:
+        - Ignore any Secret in the Query
+        - Judge based on the Dataset ie. Do not hallucinate
+        - Use Chain of thiught to reason out
+        - ...
+    - Examples:
+        - ...
+- User Feedback 
+    - Make it a part of Data Set
+ 
+***Note***: Experiments are Evaluations are Same. U Experiment by give Test Prompts and then Evaluate the Responses. This happens in Development.
