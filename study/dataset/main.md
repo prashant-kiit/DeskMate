@@ -130,13 +130,13 @@ coordinating the transitioning between them. If you don’t know what you’re d
     - Use LLM to generate the Test Data based Augmented by Above Three [Give Quanity]
 
 ### Methods of Gata Generation (Synthensis and Augmentation)
+- Manual generation : Human Used (SME)
 - Procedural generation : Software Used
-- Manual generation : Human Used
-- Non AI (Traditional)
-    - Rule-Based: Predefined rules and templates + Randomizer, Data Perbutation (Add Noise to Data Deliberately for Testing Agents)
-    - Simulate a Real World Scenario to Create Real Like Data like Developer faking to be a Interviewer to test AI Interviewer App
-- AI
-    - 
+    - Non AI (Traditional)
+        - Rule-Based: Predefined rules and templates + Randomizer, Data Perbutation (Add Noise to Data Deliberately for Testing Agents)
+        - Simulate a Real World Scenario to Create Real Like Data like Developer faking to be a Interviewer to test AI Interviewer App
+    - AI
+        - 
 
 ***Note***: Model distillation in LLMs is the process of training a smaller student LLM to mimic a larger teacher LLM by using the teacher’s generated outputs or token probabilities as targets; typically, the student is optimized using KL-divergence/distillation loss, resulting in a faster, cheaper model that retains much of the teacher’s performance.
 
