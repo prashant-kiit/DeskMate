@@ -47,7 +47,9 @@ AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test
         - Precision
         - Recall
         - Accuracy
+        - Groundedness
         - Security (Red Teaming)
+        - Cost and Token Usage
     - LLM Judged or Human Judged or Both
     - Mesures: Average, P50, P99
 - Human Jugdement:
