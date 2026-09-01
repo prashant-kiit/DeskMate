@@ -15,9 +15,9 @@ Traditonal Test: Exact Match
         - ?
 
 AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test)]
-- ([Target is Wrong] OR [Eval is Wrong]) <- Dashboard (Metrics - Score) <- (LLM + Human)[Test DataSet] <- Observabilty Logs <- Target
-        |                        |____________________________________________________________^                                     ^
-        |___________________________________________________________________________________________________________________________|
+- (Human Jugdement) <- Dashboard (Metrics - Score) <- (LLM + Human)[Test DataSet] <- Observabilty Logs + SME Synthetic Data <- Target
+        |                        |___________________________________________^                                     ^
+        |__________________________________________________________________________________________________________|
 - Test Dataset:
     - (Metric_0 : (Query, Response), Total_Score, Verdict (Threshold on Score): PASS | FAIL, Reason for Total_Score Metric Wise, Human_Bias)
     - (Metric_1 : (Query, Response), Total_Score, Verdict (Threshold on Score): PASS | FAIL, Reason for Total_Score Metric Wise, LLM_Bias)
@@ -56,6 +56,8 @@ AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test
     - Based on Truth Table
         - Target is Wrong
         - Eval is Wrong
+        - Both are wrong
+        - Both are correct
 - System Prompt:
     - Role: AI Evalutor
     - Task: Evalutate the Agent to be Production ready
