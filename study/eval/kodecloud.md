@@ -29,7 +29,7 @@ AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test
         - ...
 - Training Metric wise:
     - Fine Tune or RAG the Model
-    - Make Human Learn
+    - Make Human Learn (SME)
 - Start The Test:
     - CI/CD
     - A/B Testing
