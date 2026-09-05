@@ -158,8 +158,10 @@ High-quality content → Generate instructions
 
 ***Note***: Model distillation in LLMs is the process of training a smaller student LLM to mimic a larger teacher LLM by using the teacher’s generated outputs or token probabilities as targets; typically, the student is optimized using KL-divergence/distillation loss, resulting in a faster, cheaper model that retains much of the teacher’s performance.
 
-Pending:
-- Standard Rule for Data Annotation : Features and Labels (https://www.youtube.com/results?search_query=how+to+label+data+for+ml)
-- Fine Tuning, Hyperparameters
+### DataSet Processing:
+1. Inspect Data
+2. Dedupluicate Data
+3. Clean and Filter Data
+4. Format Data
 
 
