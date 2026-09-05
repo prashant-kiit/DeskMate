@@ -4,14 +4,14 @@ Traditonal Test: Exact Match
         - Unit : One Component
         - Integration : Interaction B.w Components
         - E2E : Complete System
-    - Non-Fucntional:
+    - Non-Functional:
         - ?
 - Regression
     - Functional:
         - Unit : One Component
         - Integration : Interaction B.w Components
         - E2E : Complete System
-    - Non-Fucntional:
+    - Non-Functional:
         - ?
 
 AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test)]
