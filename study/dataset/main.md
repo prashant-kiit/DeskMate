@@ -80,8 +80,6 @@
 
 ***Note***: In short, if you have a small amount of data, you might want to use PEFT methods (LoRA) on more advanced models. If you have a large amount of data, use full finetuning with smaller models.
 
-### Hyperparameters
-
 ### Approaches for Data Set Curation:
 - Self-supervised → supervised
 You want to finetune a model to answer legal questions. Your (question, answer) set is small, but you have many legal documents. You can first finetune your model on legal documents in a self-supervised manner, then further finetune the model on (question, answer) pairs.
@@ -116,7 +114,7 @@ coordinating the transitioning between them. If you don’t know what you’re d
     3. Deploy the Model and gather Real Production Data
     4. Augment the Real Production Data by extending (along similar patterns) it (Use AI)
 
-### Data Synthezise
+### Data Synthesize
 - Use when real-world data is scarce 
 - Helps:
     - To increase data quantity
@@ -129,16 +127,39 @@ coordinating the transitioning between them. If you don’t know what you’re d
     - Asked AI to generate the PII Data based on Varying Factors of Country, Region, Religion, Professions, Experiences etc. [Gives Coverage]
     - Use LLM to generate the Test Data based Augmented by Above Three [Give Quanity]
 
-### Methods of Gata Generation (Synthensis and Augmentation)
+### Methods of Gata Generation (Synthesization and Augmentation)
 - Manual generation : Human Used (SME)
 - Procedural generation : Software Used
     - Non AI (Traditional)
         - Rule-Based: Predefined rules and templates + Randomizer, Data Perbutation (Add Noise to Data Deliberately for Testing Agents)
         - Simulate a Real World Scenario to Create Real Like Data like Developer faking to be a Interviewer to test AI Interviewer App
     - AI
-        - 
+        - Self Play: You can have one version of the model play the role of a customer with issues and another play the customer support agent
+                Test Agent <-> Application Agent <-> Eval Agent
+                                    ^                   V
+                                    |______Flywheel_____|   
+        - AI’s paraphrasing and translation abilities can be used to augment existing datasets eg: AI to translate data in high-resource languages (more available online) into low-resource languages; You can verify the quality of translations with back-translation using AI; Only if the generated translation is considered faithful to the original it will be used to finetune the model 
+        - Use Business Domain or Sub Domain Specific Test DataSet for Test Agent and Benchmark DataSet for Eval Agent
+        - Models are biased towards to First and Last Record in DataSet (Lost in the Middle Problem). Solve this by dividing the DataSet into smaller SubSets and Use of all (or major) ordering permutations of the SubSet for Testing and Benchmarking
+        - use AI to generate instructions and then humans to write responses (Forward Instructions)
+        - Use high-quality content like stories, books, and Wikipedia articles, avoiding AI-generated hallucinations in the DataSet
+        - Reverse Instructions: humans to write responses and then use AI to generate instructions
+             ┌─────────────────────────┐
+             │                         ↓
+High-quality content → Generate instructions
+             ↑               │
+             │               ↓
+             │        New training data
+             │               │
+             │               ↓
+             └──────── Better Model
+        - Use synthetic data to finetune a model for understanding longer contexts. Split long documents into smaller chunks, generate multiple question-answer pairs from each chunk, and use the full original document + question-answer pairs as extended context for each pair to train the model on long-context question answering.
+        - Fine Tuning and Augmentation is Recurring
 
 ***Note***: Model distillation in LLMs is the process of training a smaller student LLM to mimic a larger teacher LLM by using the teacher’s generated outputs or token probabilities as targets; typically, the student is optimized using KL-divergence/distillation loss, resulting in a faster, cheaper model that retains much of the teacher’s performance.
 
 Pending:
-Standard Rule for Data Annotation : Features and Labels (https://www.youtube.com/results?search_query=how+to+label+data+for+ml)
+- Standard Rule for Data Annotation : Features and Labels (https://www.youtube.com/results?search_query=how+to+label+data+for+ml)
+- Fine Tuning, Hyperparameters
+
+
