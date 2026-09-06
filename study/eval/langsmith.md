@@ -36,6 +36,8 @@ The response can then be traced in the LangSmith dashboard.
 
 ---
 
+
+
 ## 3. Inspect traces
 
 A trace captures the execution of an LLM/agent workflow.
@@ -61,7 +63,11 @@ For an agent, LangSmith can show individual tool calls and their token consumpti
 
 ---
 
+
+
 # Building Evaluation Data
+
+
 
 ## 4. Create an evaluation dataset
 
@@ -78,9 +84,9 @@ dataset = client.create_dataset(
 )
 ```
 
-
-
 ---
+
+
 
 ## 5. Add examples with ground truth
 
@@ -96,6 +102,8 @@ The transcript also demonstrates importing datasets through CSV or JSONL.
 
 ---
 
+
+
 ## 6. Build a good "golden" dataset
 
 A strong dataset should contain:
@@ -107,6 +115,11 @@ Edge cases
 Adversarial inputs
 Ground-truth answers
 Metadata/tags
+Paying vs. free users
+Mobile vs. web
+Short vs. long inputs
+In-scope vs. out-of-scope inputs
+Normal vs. typo-heavy/hard examples
 ```
 
 Example:
@@ -122,6 +135,8 @@ Example:
 The transcript emphasizes **edge-case coverage, balanced intents, ground truth, and real-world production scenarios**. 
 
 ---
+
+
 
 ## 7. Add metadata/tags
 
@@ -146,6 +161,8 @@ This avoids relying only on one overall accuracy number.
 
 ---
 
+
+
 ## 8. Version datasets
 
 Create a new dataset version instead of modifying the existing benchmark.
@@ -167,7 +184,11 @@ Dataset versioning allows historical results to be reproduced and improvements t
 
 ---
 
+
+
 # Building Evaluators
+
+
 
 ## 9. Start with Exact Match
 
@@ -194,9 +215,9 @@ Output:    "You can return items within 30 days"
 Exact Match → 0
 ```
 
-
-
 ---
+
+
 
 ## 10. Use Contains for more flexibility
 
@@ -215,6 +236,8 @@ def contains(run, example):
 This passes when the reference answer appears anywhere in the response. 
 
 ---
+
+
 
 ## 11. Build a keyword-coverage evaluator
 
@@ -237,6 +260,8 @@ def keyword_coverage(run, example):
 This is more flexible than Exact Match but still deterministic. 
 
 ---
+
+
 
 ## 12. Use LLM-as-a-Judge
 
@@ -265,7 +290,11 @@ The transcript emphasizes that LLM-as-a-judge handles semantic equivalence and s
 
 ---
 
+
+
 # Running Experiments
+
+
 
 ## 13. Run an evaluation experiment
 
@@ -282,6 +311,8 @@ evaluate(
 An experiment runs the application over the entire dataset and applies the evaluators. 
 
 ---
+
+
 
 ## 14. Run multiple evaluators
 
@@ -310,7 +341,11 @@ Multiple evaluators provide a **multi-dimensional view of quality**.
 
 ---
 
+
+
 # Comparing Prompts
+
+
 
 ## 15. Create Prompt V2
 
@@ -334,6 +369,8 @@ evaluate(
 ```
 
 ---
+
+
 
 ## 16. Compare experiments
 
@@ -361,7 +398,11 @@ This shows whether the prompt change actually improved quality rather than relyi
 
 ---
 
+
+
 # Production Readiness
+
+
 
 ## 17. Define quality thresholds
 
@@ -392,9 +433,9 @@ Both pass → GO FOR PRODUCTION
 Otherwise → NOT READY
 ```
 
-
-
 ---
+
+
 
 # 18. Monitor production
 
@@ -426,9 +467,9 @@ Failures / Regressions
 Add failures back to Dataset
 ```
 
- 
-
 ---
+
+
 
 ## Final Workflow
 
