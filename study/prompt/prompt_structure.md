@@ -3,6 +3,7 @@
 A system prompt is a **specification, not a conversation**. Merging both frameworks into one complete version:
 
 ### Core Sections
+
 ```
 1. ROLE            → Identity, persona, expertise
 2. OBJECTIVE        → What success looks like
@@ -14,12 +15,15 @@ A system prompt is a **specification, not a conversation**. Merging both framewo
 ```
 
 ### Key Principles (from both)
+
 - **Specific > vague** — "3 bullet points, under 50 words" beats "be brief"
 - **Positive framing** — "Ask for missing info" > "Don't guess"
 - **Structure matters** — use headers/XML tags to separate sections; models attend more to top/bottom
 - **Never fabricate** — explicitly define fallback behavior for uncertainty
 
 ---
+
+
 
 ### Unified Example: Customer Support Agent
 
@@ -43,6 +47,8 @@ accurately, concisely, and empathetically.
 - Use refund_order() only after confirming eligibility.
 - Never call tools unnecessarily.
 
+# TONE: Fluency (grammatical, natural-sounding), Coherence (logically structured), Polite
+
 # OUTPUT FORMAT
 Answer: <direct response>
 Action: <tool/action taken, if any>
@@ -63,12 +69,17 @@ Next Step: Awaiting order ID from customer
 
 ---
 
+
+
 ### Why This Works
-| Section | Prevents |
-|---|---|
-| Rules | Off-brand or unsafe behavior |
-| Tool Usage | Unnecessary/unauthorized tool calls |
-| Output Format | Inconsistent responses |
-| Failure Handling | Hallucination, overpromising |
+
+
+| Section          | Prevents                            |
+| ---------------- | ----------------------------------- |
+| Rules            | Off-brand or unsafe behavior        |
+| Tool Usage       | Unnecessary/unauthorized tool calls |
+| Output Format    | Inconsistent responses              |
+| Failure Handling | Hallucination, overpromising        |
+
 
 **Rule of thumb:** Write it like a spec sheet, not a pep talk — every rule should be testable (you can check pass/fail from a transcript).
