@@ -64,7 +64,7 @@ AI Test: Semantic Match + Traditional Test [Test API Contracts (Integration Test
     - Method:
         - Use Dataset as baseline
         - Take User Query and evalute against he respinses in the Dataset
-        - Generate (use Exactness and Smeantics both h hyrid approach) Eval Report as per the Format give below
+        - Generate (use Exactness and Smeantics both hyrid approach) Eval Report as per the Format give below
     - Output Format:
         - (Metric_0 : (Query, Response), Total_Score, Verdict (Threshold on Score): PASS | FAIL, Reason for Total_Score Metric Wise, Human_Bias)
     - Guardrails:

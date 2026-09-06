@@ -41,6 +41,22 @@
 - Preference: A/B Testing; Reference: Desired Response Testing
 - Non Functional Correctness: Performance, Cost etc. measurement
 
+### AI as a Judge (Machine:Non Exact)
+- Score based below criteria based on Reasoning + Human Factor against a Reference (Normal) or Preference (AB):
+    - correctness (precision)
+    - wholesomeness (recall)
+    - hallucination (groundedness)
+    - synchopancy (sycophancy rate)
+    - toxicity (tonality, prompt injection)
+- System Prompt for AI- Judge:
+  - Role (QA Tester)
+  - Objctive (Evalute the XYZ Agent)
+  - Criteria (As Mentioned above)
+  - Score (Class <- Discret <- Continous) 
+  - Output Format (Case + Score + Reasonse)
+  - Examples (Few Shots)
+
+
 ***Note***: Since different models tokenize differently (words vs. characters), raw bits-per-token isn't comparable across models. BPC (bits-per-character) normalizes for this: e.g., 6 bits/token ÷ 2 characters/token = BPC of 3. But character-encoding schemes vary too (ASCII = 7 bits/char, UTF-8 = 8–32 bits/char), so BPB (bits-per-byte) standardizes further: BPC of 3 ÷ (7/8 byte) = BPB of 3.43. Cross entropy in this form tells you compression efficiency — a BPB of 3.43 means the model compresses original 8-bit bytes down to 3.43 bits, less than half the original size.
 
 ---
