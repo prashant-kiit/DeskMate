@@ -55,6 +55,22 @@
   - Score (Class <- Discret <- Continous) 
   - Output Format (Case + Score + Reasonse)
   - Examples (Few Shots)
+- Stronger vs Same vs Weaker AI Judge — Use Cases
+  - Stronger Judge → High-stakes / complex evaluation
+    - Medical, legal, financial, safety-critical outputs
+    - Complex reasoning or nuanced quality assessment
+    - When accuracy of evaluation matters more than cost
+    - Example: GPT-5.6 judges a cheaper model's financial analysis
+  - Same Model → Self-evaluation / iterative improvement
+    - Self-critique and revision
+    - Detecting obvious mistakes before returning an answer
+    - Improving response quality through reflection
+    - Example: Model generates → critiques its answer → revises
+  - Weaker / Small Specialized Judge → High-volume, narrow evaluation
+    - Simple, repetitive checks at large scale
+    - Domain-specific evaluation where a small model can be trained specifically for the task
+    - Cost/latency-sensitive production monitoring
+    - Example: Small classifier checks whether generated customer-support answers follow company policy
 
 ***Note*** : Limitations of AI:
 - Inconsistency — The same AI judge can give different scores for the same answer in different runs.
