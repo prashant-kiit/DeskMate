@@ -23,19 +23,19 @@
         - Longer context (Gives More Data as Background for Reasoning to happens) → lower perplexity
 
 ### Exact/Non Exact Evaluation
-- Functional Correctness: Any task with a genuinely measurable objective, can be evaluated on what it's actually supposed to do. eg: Code generation
+- Functional Correctness: Any task with a genuinely measurable (Exact or Non Exact) objective, can be evaluated on what it's actually supposed to do. eg: Code generation
 - Human:
-  - Exact: Yes or No (Binary Reference)
+  - Exact: Yes or No (N-nary Reference) / (Closed-ended question)
     - Lexical : Levenstein Distance / N-Gram Similarity
     - Semantics : Cosine Similarity 
-  - Non Exact: Not Yes or No (N-nary Reference)
+  - Non Exact: Not Yes or No (Open-ended question Reference)
     - Lexical : Levenstein Distance / N-Gram Similarity
     - Semantics : Cosine Similarity 
 - Machine:
-  - Exact: Yes or No (Binary Reference) [Deterministic System]
+  - Exact: Yes or No (N-nary Reference) / (Closed-ended question) [Deterministic System]
     - Lexical : Levenstein Distance / N-Gram Similarity
     - Semantics : Cosine Similarity 
-  - Non Exact: Not Yes or No (N-nary Reference) [Non-Determinitic System]
+  - Non Exact: Not Yes or No (Open-ended question Reference) [Non-Determinitic System]
     - Lexical : Levenstein Distance / N-Gram Similarity
     - Semantics : Cosine Similarity 
 
