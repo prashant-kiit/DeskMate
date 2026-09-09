@@ -14,3 +14,14 @@ Kubernetes [Docker + Event Bus]
 
 - Storage
     - InComplete Response State Storage
+
+Virtualization
+- VM [Infra / Platform]
+    - Container [Multi Agent]
+        - Sandbox [Single Agent]
+
+- Gives Isolation
+    - Cohesion -> Security
+    - Decoupling -> Scale 
+
+
