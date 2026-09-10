@@ -12,12 +12,12 @@ Kubernetes [Docker + Event Bus]
     - MCP Bi-directional + RestAPI + Webhook + Queue Communication
     - VIPER Client-Server Architecutre for Frontend and Backend
     - Parent Agent as RestAPI Service
-        - Calls MCP Gateway as Non-Sandbox (Static)
-        - Calls MCP Gateway as Sandbox (Dynamic)
-            - Tools as MCP Services in Container
-        - Calls A2A Gateway as Non-Sandbox (Static)
-        - Calls A2A Gateway as Sandbox (Dynamic)
-            - Agents as A2A Services in Container
+        - Calls MCP Gateway as Non-Sandbox (Static) [if Local, Stdio Tool Service is here]
+        - Calls MCP Gateway as Sandbox (Dynamic) [if Local, Stdio Tool Service is here]
+            - Tools as MCP Services in Container, if Remote
+        - Calls A2A Gateway as Non-Sandbox (Static) [if Local, Stdio Tool Service is here]
+        - Calls A2A Gateway as Sandbox (Dynamic) [if Local, Stdio Tool Service is here]
+            - Agents as A2A Services in Container, if Remote
 
 - Storage
     - InComplete Response State Storage
