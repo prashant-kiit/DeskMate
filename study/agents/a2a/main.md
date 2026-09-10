@@ -11,6 +11,13 @@ Kubernetes [Docker + Event Bus]
     - Ingress Queue and Egress Queue
     - MCP Bi-directional + RestAPI + Webhook + Queue Communication
     - VIPER Client-Server Architecutre for Frontend and Backend
+    - Parent Agent as RestAPI Service
+        - Calls MCP Gateway as Non-Sandbox (Static)
+        - Calls MCP Gateway as Sandbox (Dynamic)
+            - Tools as MCP Services in Container
+        - Calls A2A Gateway as Non-Sandbox (Static)
+        - Calls A2A Gateway as Sandbox (Dynamic)
+            - Agents as A2A Services in Container
 
 - Storage
     - InComplete Response State Storage
