@@ -13,3 +13,4 @@ https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/a
 
 Sandbox and Containers:
 https://www.youtube.com/watch?v=wsFd22SL1s8
+https://www.youtube.com/watch?v=csT16BaTHwY
