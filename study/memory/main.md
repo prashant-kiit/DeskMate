@@ -1,0 +1,51 @@
+### Source: 
+- https://www.youtube.com/watch?v=BacJ6sEhqMo
+- https://www.youtube.com/watch?v=aYfZN8t6AQs
+
+- LLM are Stateless Machines ie. Do not Store Memory. So, a Agentic Memory Layer is required.
+- Types of Agent Memory :
+    - Working Memory (Short Term Memory): 
+        - RAM
+        - State of Flow Graph
+    - Lexical Memory (Main Memory):
+        - User Info (Like Auth)
+        - SQL
+        - ROM Based
+        - MetaData (CreatedAt, UpdatedAt, CreatedBy, DeDuplication Hash, Lemma Version, Expiration Date)
+    - Semantic Memory (Main Memory):
+        - System Prompt
+        - VectorDB
+        - ROM Based
+        - Vectors
+    [Single Entity: Lexical and Semantic Memory Link by RecordID (Hashed) and VectorID (Hashed)]
+    - Procedural Memory:
+        - GraphDB [Knowledge Graph of Entity + Relations] (Entity Memory)
+            - Procedure on every turn of the loops
+            - Query-Response on outer most loops
+            - Stores Procedure and Converstion in the Session
+            - Used for Guided Agentic Processing
+        - Agent and Tool Code File
+        - ROM based
+    - Session Memory:
+        - Sliding Window Ranged Conversations
+        - SQL
+        - ROM Based
+    - Episodic Memory (Long Term Memory)
+        - Past Conversation
+        - Sessions Combined
+        - Compressed/Summarized Past Sessions beyond Sliding Window (Session/Converational Memory) using a Background Job for Memory Ingestion
+            - Lexical component and Semantical component (Hybrid)
+            - Input: User Memory Summary + Recent Conversation from Sliding Window from Session Memory + Creation Date + Similar Memory from Current Epidodic Memory
+        - Different/External to Conversational Memory
+        - Lexical + Semantic [Single Entity] using Possibly a Knowledge Graph
+    - User Memory:
+        - User Details
+        - SQL
+        - ROM Based
+    - Log Memory:
+        - User Activity Log
+        - System/Application Log
+        - Audit Log
+    - Memory Cache:
+        - Query-Response Cache
+        - Lexical or Semantic Nature
