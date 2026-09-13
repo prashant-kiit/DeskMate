@@ -1,6 +1,7 @@
 ### Source: 
 - https://www.youtube.com/watch?v=BacJ6sEhqMo
 - https://www.youtube.com/watch?v=aYfZN8t6AQs
+- Mem0 Sections from Piyush Garg Udemy Course https://www.udemy.com/course/full-stack-ai-with-python/
 
 - LLM are Stateless Machines ie. Do not Store Memory. So, a Agentic Memory Layer is required.
 - Types of Agent Memory :
@@ -30,7 +31,7 @@
         - Sliding Window Ranged Conversations
         - SQL
         - ROM Based
-    - Episodic Memory (Long Term Memory)
+    - Episodic Memory (Long Term Memory) / (Secondary Memory)
         - Past Conversation
         - Sessions Combined
         - Compressed/Summarized Past Sessions beyond Sliding Window (Session/Converational Memory) using a Background Job for Memory Ingestion
@@ -38,10 +39,23 @@
             - Input: User Memory Summary + Recent Conversation from Sliding Window from Session Memory + Creation Date + Similar Memory from Current Epidodic Memory
         - Different/External to Conversational Memory
         - Lexical + Semantic [Single Entity] using Possibly a Knowledge Graph
-    - User Memory:
+        - Here, Sliding Window is build using 
+            - Most High Scoring Session Memory (Procedural and Converstional Memory)
+            - Time Based
+    - User Memory (Factual):
         - User Details
         - SQL
         - ROM Based
+        - Conflict Resolution Based:
+            - Provenance
+            - Recency
+    - Agent Memory (Factual):
+        - Agent Details
+        - SQL
+        - ROM Based
+        - Conflict Resolution Based:
+            - Provenance
+            - Recency
     - Log Memory:
         - User Activity Log
         - System/Application Log
@@ -49,3 +63,22 @@
     - Memory Cache:
         - Query-Response Cache
         - Lexical or Semantic Nature
+- Memory Retrieval
+    - [User Prompt + System Prompt] + [Tools (For Each Step in COT/Plan) + Agents (For Each Step in Plan/COT)]
+    - Plan the Steps and then Execute those Steps, that makes the whole flow Multi-Turn [Plan and Execute Design]
+    - For Each Plan-Step, generate a Chain of Thought that makes each step Multi-Turn
+    - The COT-Steps will be guided by Knowledge Graph's Entity Relationships [Reason and Act and Observe Design]
+        - Search first happens in Main Memory then in Similar/Identical (hybrid) in Secondary Memory based on Similarity/Identicality Thresholded-Score
+            - Main Memory (Short Term / Session): KnowledgeGraph -> SQL Records + VectorDB Vectors
+            - Secondary Memory (Long Term / Episodic): KnowledgeGraph -> SQL Records + VectorDB Vectors
+        - Reranking using Lexical or Semantic Method + an Offset Marker like Top N
+        - ***Note***: Here Lexical Operation with happen in SQL Metadata and Semantical Operation in VectorDB Vector Space
+    - Context : User Prompt + System Prompt (Role + Objective + Method + Guardrails + Tone + Output Format) + Retreived Memory + User Memory + Agent Memory
+
+- ***Note***:
+    - Equailty :
+        - Semantics - Exact, TF-IDF (BM25), Lexical - Exact, TF-IDF (BM25) 
+        - Semantics - Cosine Similarity (ANN), Lexical - Levenstein Distance (Fuzzy)
+    - Indexing:
+        - Lexical (Normalization) - Tree + Map + Linked-List
+        - Semantics (Clustering/Segmentation) - LSH + HSWN + Quantization/Centroid + TextTiling
