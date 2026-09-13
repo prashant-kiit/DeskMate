@@ -54,6 +54,7 @@ accurately, concisely, and empathetically.
 # OUTPUT FORMAT
 Answer: <direct response>
 Action: <tool/action taken, if any>
+Reason: What is the reason for this output
 Next Step: <what the customer should do>
 
 # FAILURE HANDLING
