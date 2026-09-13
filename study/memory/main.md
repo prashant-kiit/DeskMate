@@ -4,6 +4,9 @@
 - Mem0 Sections from Piyush Garg Udemy Course https://www.udemy.com/course/full-stack-ai-with-python/
 - https://www.youtube.com/watch?v=bfdTWkjsu8k
 
+---
+
+### Memory Architecture
 - LLM are Stateless Machines ie. Do not Store Memory. So, a Agentic Memory Layer is required.
 - Types of Agent Memory :
     - Working Memory (Short Term Memory): 
@@ -80,14 +83,9 @@
         - ***Note***: Here Lexical Operation with happen in SQL Metadata and Semantical Operation in VectorDB Vector Space
     - Context : User Prompt + System Prompt (Role + Objective + Method + Guardrails + Tone + Output Format) + Retreived Memory + User Memory + Agent Memory
 
-- ***Note***:
-    - Equailty :
-        - Semantics - Exact, TF-IDF (BM25), Lexical - Exact, TF-IDF (BM25) 
-        - Semantics - Cosine Similarity (ANN), Lexical - Levenstein Distance (Fuzzy)
-    - Indexing:
-        - Lexical (Normalization) - Tree + Map + Linked-List
-        - Semantics (Clustering/Segmentation) - LSH + HSWN + Quantization/Centroid + TextTiling
+---
 
+### Agent Memory Failure Modes
 - Staleness 
     - Old Data is expired 
     - Data with less weightage & bais is ignored
@@ -107,4 +105,14 @@
     - Tag Data with User ID 
     - Tag Data with Target ID
     - Scope the Data Retreival to User and Target ID 
+
+---
+
+***Note***:
+- Equailty :
+    - Semantics - Exact, TF-IDF (BM25), Lexical - Exact, TF-IDF (BM25) 
+    - Semantics - Cosine Similarity (ANN), Lexical - Levenstein Distance (Fuzzy)
+- Indexing:
+    - Lexical (Normalization) - Tree + Map + Linked-List
+    - Semantics (Clustering/Segmentation) - LSH + HSWN + Quantization/Centroid + TextTiling
 
