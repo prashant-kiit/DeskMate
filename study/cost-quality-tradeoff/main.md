@@ -51,16 +51,16 @@
 - Basic Application : Base Big Model + Query/Response Optimization + Cache + Batching
   - Lowest Upfront Cost
   - Highest Cost In Future
-  - Uncertain Query Types + New Endeeavor + High Risk
+  - Uncertain Query Types + New Endeeavor + High Risk + Less Query Volume
 - Moderate Application : Base Medium Model + RAG + Query/Response Optimization + Cache + Batching
   - Medium Upfront Cost
   - Medium Cost In Future
-  - Some Certainty of Query Types + Less New Endeeavor + Medium Risk
+  - Some Certainty of Query Types + Less New Endeeavor + Medium Risk + Moderate Query Volume
 - Advanced Application : Base Small Model + Fine Tuning + Query/Response Optimization + Cache + Batching
   - Highest Upfront Cost
   - Lowest Cost In Future
-  - Almost Certain Query Types + Old Endeeavor + Less Risk
-  
+  - Almost Certain Query Types + Old Endeeavor + Less Risk + High Query Volume
+
 ---
 
 ***Note***: 
