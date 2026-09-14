@@ -20,7 +20,7 @@
     - Models can be hosted on Serverless Servers or Our own Infra using Ollama or other Model Engine; However, Own Infra Human Effort is an additional cost
     - Instead of Embedding Model, one can use TF-IDF based Vectorizer for Embedding
     - Use Prompt Caching of LLMs
-    - For Non-Interactive Apps, use Single Threaded or Multi Threaded Batch Processing on Model to utilize 100% GPU and RAM in ServerFul Infra
+    - For Non-Interactive Apps and Self Hosted Models, use Single Threaded or Multi Threaded Batch Processing on Model to utilize 100% GPU and RAM in ServerFul Infra
 
 - Context Factor:
     - Store on the Relevant and Logically Structured Data in RAG and Fine Tuning Data Source, as it helps with Reducing the Size of Context and offloads some Reasoning work from the LLM
