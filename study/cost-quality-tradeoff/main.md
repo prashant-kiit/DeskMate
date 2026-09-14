@@ -29,6 +29,7 @@
     - Have a Cache Layer for Memory and RAG Both
     - Use SQL and TextToQueryRetrevier (Lexical) for very Structured Data; For Unstructured Data very Need Semantics Search in Vector DB; This would save cost for Certain Use Cases
     - In VectorDB based RAG use Hybrid Approach with BM25 First and then Similarity Search
+    - If Too much of Documents are in RAG Data Store then, Use Memory Taxonomy Principles and Remove Useless Data (Old and Irrelevant Data using Low Weight and Bias) or Move it to Cheaper Store
 
 - Business Usecase Factor:
     - Remove the Componets that do not Improve the Quality of the System
