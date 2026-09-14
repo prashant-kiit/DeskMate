@@ -12,15 +12,6 @@ A multi-turn conversation:
 
 The final question — *"How about Emily Doe?"* — is meaningless on its own. If you feed that string directly into your retriever, you'll get irrelevant results, because nothing in it mentions purchases, dates, or "last time." The retriever has no way to know the question is actually about purchase history. The fix: rewrite the query into something that stands alone and captures the actual intent — in this case, *"When was the last time Emily Doe bought something from us?"* The book's stated bar for a good rewrite: **the new query should make sense on its own**, without needing the prior conversation turns to interpret it.
 
-## Where it fits — not RAG-exclusive
-
-The book places this discussion inside the RAG section, but is explicit that query rewriting isn't unique to RAG. It notes two eras of how it's been done:
-
-- **Traditional search engines** — typically handled with heuristics.
-- **AI applications** — can be done using other AI models entirely. The book gives a template prompt: *"Given the following conversation, rewrite the last user input to reflect what the user is actually asking,"* and shows (Figure 6-4) ChatGPT performing this rewrite in practice.
-
-
-
 ## Where it gets hard: identity resolution
 
 The book flags that query rewriting can get significantly more complicated when it requires resolving *who or what* a pronoun or reference actually points to — what it calls **identity resolution** — or when it needs outside knowledge to complete the query.
