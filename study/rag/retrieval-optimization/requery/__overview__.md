@@ -16,6 +16,6 @@ The final question — *"How about Emily Doe?"* — is meaningless on its own. I
 
 The book flags that query rewriting can get significantly more complicated when it requires resolving *who or what* a pronoun or reference actually points to — what it calls **identity resolution** — or when it needs outside knowledge to complete the query.
 
-## Prompt Rewriting is also Done to Compress it by Normalizing to Remove Lexical or Semantic Redundancy
+## Prompt Rewriting is also Done to Compress it by Normalizing to Remove Lexical or Semantic Redundancy to Save Cost
 
 **Worked example:** if the user asks *"How about his wife?"*, the rewriting step first has to query a database to figure out who "his wife" actually refers to before it can produce a standalone query. The book draws a sharp line here on failure behavior: **if that identity information isn't available, the rewriting model should say the query isn't solvable — not hallucinate a name.** Guessing a name that happens to sound plausible would silently corrupt everything downstream: the retriever would confidently fetch documents about the wrong person, and the final answer would be wrong in a way that looks correct.
