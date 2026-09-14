@@ -43,4 +43,6 @@
     - Dividing the Task over Multiple Agents and Tools can increase (Too much Compute) and decrease (Less Context Each) based the Situation
     - If Model can be used to generate the Agents and Tools in Sandbox for Performing Repetitive Deterministic Task then that can Save Cost
 
-***Note***: Experiment and find out the best Cost and Performance Configuration
+***Note***: 
+- Experiment and find out the best Cost and Performance Configuration
+- Small Mode for Classification, Medium Model for Summarization and Big Model for Technical Reasoning
