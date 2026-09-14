@@ -1,4 +1,4 @@
-from openai import OpenAI
+from openai import OpenAI  # pyright: ignore[reportMissingImports]
 
 client = OpenAI()
 

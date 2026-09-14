@@ -1,7 +1,7 @@
 # pip install openai chromadb pypdf
 
-from openai import OpenAI
-import chromadb
+import chromadb  # pyright: ignore[reportMissingImports]
+from openai import OpenAI  # pyright: ignore[reportMissingImports]
 from pypdf import PdfReader
 
 client = OpenAI()
