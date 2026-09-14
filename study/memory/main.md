@@ -6,7 +6,7 @@
 
 ---
 
-### Memory Architecture
+### Memory Layer (Memory Taxonomy) Architecture
 - LLM are Stateless Machines ie. Do not Store Memory. So, a Agentic Memory Layer is required.
 - Types of Agent Memory :
     - Working Memory (Short Term Memory): 
@@ -105,6 +105,19 @@
     - Tag Data with User ID 
     - Tag Data with Target ID
     - Scope the Data Retreival to User and Target ID 
+
+### Memory Management and Query Rewriting are related
+- Use the Memory to infuse User Query with relavant Information so that it becomes independent of other User Queries 
+- This Rewritten User Query should be used down stream
+- How to Infuse is below in ***Routing to Memory Layer*** Section
+
+### Routing to Memory Layer
+- Hybrid Approach
+- Rule Based [Regex for Keywords] + LLM [Conditions in System Prompt with]
+- Rule Cheap and Structured Prompt
+- LLM Expensive and Unstructure Prompt
+- Fused Rank from Both Approach
+- Return will be the order of the Memory Layer to Retreived
 
 ---
 
