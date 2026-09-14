@@ -1,5 +1,5 @@
 ## Cost Consideration in AI
-
+#### Resource: https://www.youtube.com/watch?v=54jc_r6pU2Y&list=PLcb7mkm0YC-I&index=4
 ---
 
 ### Cost and Performance Trade Off
@@ -60,6 +60,8 @@
   - Highest Upfront Cost
   - Lowest Cost In Future
   - Almost Certain Query Types + Old Endeeavor + Less Risk + High Query Volume
+- Hybrid Approach
+  - RAG + Fine Tuning + Caching + Batching + Query/Response Optimizations + Model Routing
 
 ---
 
