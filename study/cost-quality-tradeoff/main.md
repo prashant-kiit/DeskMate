@@ -14,7 +14,7 @@
     - Taking Data and Reasoning out of the Big Model to Knowledge Graph in GraphRAG + Small Model Architecture and help with Save Cost by Saving on Data and Reasoning; However downside is to Human Effort and Data Ingestion Cost
     - We downgrade a Big Model to Small Model Like Behaviour Re-tuning the Temp and Top K which reduces the Entropy by reducing Parameters thus reducing Data and Reasoning Requirements, which leads to Cost Saving
     - We can Use LLM gateway to route Requests to Big and Small Model based on Task Complexity. Or, Pass Every Request to Small Model and get it verified by the Big Model and if found of Low Quality then only ask the Big Model to Generate Response
-    - Models can be hosted on Serverless Servers or Our own Infra using Ollama or other Model Engine
+    - Models can be hosted on Serverless Servers or Our own Infra using Ollama or other Model Engine; However, Own Infra Human Effort is an additional cost
     - Instead of Embedding Model, one can use TF-IDF based Vectorizer for Embedding
 
 - Context Factor:
