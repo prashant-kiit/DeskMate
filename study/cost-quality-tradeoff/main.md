@@ -4,15 +4,15 @@
 
 ### Cost and Performance Trade Off
 
-- Cost Factors: 
+- #### Cost Factors: 
   - Model Data and Reasoning because it consumes Memory and Compute resp.
   - DataSet Context Size for RAG and Fine Tuning (Memory Aspect)
   - Business UseCase Complexity (Reasoning Aspect)
   - Human Effort
-- Cost and Performance Consideration:
+- #### Cost and Performance Consideration:
   - Evaluate to identify the component consuming most cost
   - Identify the reason of the cost: Model. Context or Task at hand (Functionality)
-- Model Factor:
+- #### Model Factor:
   - Small Models are good for functionalities that need Less Data and Reasoning ie. Simpler Tasks but are Cheaper 
   - Big Models are good for functionalities that need Big Data and Reasoning ie. Complex Tasks but are Costlier
   - Using Small Model can be Expensive if we will use Multi Turn; And, Big Model can be Cheaper if we use Single Turn; Using Simple Plan and Execute can be helpful
@@ -23,7 +23,7 @@
   - Instead of Embedding Model, one can use TF-IDF based Vectorizer for Embedding
   - Use Prompt Caching of LLMs
   - For Non-Interactive Apps and Self Hosted Models, use Single Threaded or Multi Threaded Batch Processing on Model to utilize 100% GPU and RAM in ServerFul Infra
-- Context Factor:
+- #### Context Factor:
   - Store on the Relevant and Logically Structured Data in RAG and Fine Tuning Data Source, as it helps with Reducing the Size of Context and offloads some Reasoning work from the LLM
   - Same Applies for Memory Layer, where Moving the Data from Cache to Main and Main to Secondary should happen in Scheduled Manner on basis of Relevance and Recency so only important Data in there in Memory and thus form a Smaller Context 
   - Too much of Fine Tuning can be costly so use if only for Static Data while use RAG for Dynamic Data as it cheaper
@@ -36,7 +36,7 @@
   - In VectorDB based RAG use Hybrid Approach with BM25 First and then Similarity Search
   - If Too much of Documents are in RAG Data Store then, Use Memory Taxonomy Principles and Remove Useless Data (Old and Irrelevant Data using Low Weight and Bias) or Move it to Cheaper Store
   - Rewrite the Query to Compress it to Save Cost and make it independent in terms of Context so it does not need to go through multi turns to get the write Context
-- Business Usecase Factor:
+- #### Business Usecase Factor:
   - Remove the Componets that do not Improve the Quality of the System
   - See if any Component can be implemented using Deterministic Code
   - If Business Use case very Repitative then use Cache of Query-Response to Save Cost
@@ -48,16 +48,19 @@
 
 ## Architecture Evolution from Cost Perspective:
 
-- Base Big Model + Query/Response Optimization + Cache + Batching
+- Basic Application : Base Big Model + Query/Response Optimization + Cache + Batching
   - Lowest Upfront Cost
   - Highest Cost In Future
-- Base Medium Model + RAG + Query/Response Optimization + Cache + Batching
+  - Uncertain Query Types + New Endeeavor + High Risk
+- Moderate Application : Base Medium Model + RAG + Query/Response Optimization + Cache + Batching
   - Medium Upfront Cost
   - Medium Cost In Future
-- Base Small Model + Fine Tuning + Query/Response Optimization + Cache + Batching
+  - Some Certainty of Query Types + Less New Endeeavor + Medium Risk
+- Advanced Application : Base Small Model + Fine Tuning + Query/Response Optimization + Cache + Batching
   - Highest Upfront Cost
   - Lowest Cost In Future
-
+  - Almost Certain Query Types + Old Endeeavor + Less Risk
+  
 ---
 
 ***Note***: 
