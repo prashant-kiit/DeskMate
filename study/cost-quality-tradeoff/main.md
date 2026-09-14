@@ -1,17 +1,20 @@
 ## Cost and Performance Trade Off
+
 - Cost Factors: 
     - Model Data and Reasoning because it consumes Memory and Compute resp.
     - DataSet Context Size for RAG and Fine Tuning (Memory Aspect)
     - Business UseCase Complexity (Reasoning Aspect)
     - Human Effort
+
 - Cost and Performance Consideration:
     - Evaluate to identify the component consuming most cost
     - Identify the reason of the cost: Model. Context or Task at hand (Functionality)
+
 - Model Factor:
     - Small Models are good for functionalities that need Less Data and Reasoning ie. Simpler Tasks but are Cheaper 
     - Big Models are good for functionalities that need Big Data and Reasoning ie. Complex Tasks but are Costlier
     - Using Small Model can be Expensive if we will use Multi Turn; And, Big Model can be Cheaper if we use Single Turn; Using Simple Plan and Execute can be helpful
-    - Taking Data and Reasoning out of the Big Model to Knowledge Graph in GraphRAG + Small Model Architecture and help with Save Cost by Saving on Data and Reasoning; However downside is to Human Effort and Data Ingestion Cost
+    - Taking Data and Reasoning out of the Big Model to Knowledge Graph in GraphRAG + Small Model Architecture and help with Save Cost by Saving on Data and Reasoning; However downside is to Human Effort and Data Ingestion Cost; But Effort is Lesser then Fine Tuning
     - We downgrade a Big Model to Small Model Like Behaviour Re-tuning the Temp and Top K which reduces the Entropy by reducing Parameters thus reducing Data and Reasoning Requirements, which leads to Cost Saving
     - We can Use LLM gateway to route Requests to Big and Small Model based on Task Complexity. Or, Pass Every Request to Small Model and get it verified by the Big Model and if found of Low Quality then only ask the Big Model to Generate Response
     - Models can be hosted on Serverless Servers or Our own Infra using Ollama or other Model Engine; However, Own Infra Human Effort is an additional cost
