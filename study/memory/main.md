@@ -3,6 +3,7 @@
 - https://www.youtube.com/watch?v=aYfZN8t6AQs
 - Mem0 Sections from Piyush Garg Udemy Course https://www.udemy.com/course/full-stack-ai-with-python/
 - https://www.youtube.com/watch?v=bfdTWkjsu8k
+- https://www.youtube.com/watch?v=mY3bR9qjZr4
 
 ---
 
@@ -128,4 +129,5 @@
 - Indexing:
     - Lexical (Normalization) - Tree + Map + Linked-List
     - Semantics (Clustering/Segmentation) - LSH + HSWN + Quantization/Centroid + TextTiling
+- RAG is nothing but Factual Memory
 
