@@ -1,0 +1,28 @@
+flowchart TB
+    subgraph DOMAINA["Domain: Sales"]
+        DA_DP["Data Product:<br/>Orders"]
+    end
+    subgraph DOMAINB["Domain: Marketing"]
+        DB_DP["Data Product:<br/>Campaigns"]
+    end
+    subgraph DOMAINC["Domain: Finance"]
+        DC_DP["Data Product:<br/>Revenue"]
+    end
+
+    subgraph PLATFORM["Self-Serve Data Platform"]
+        INFRA["Infra-as-code, storage,<br/>compute, pipeline templates"]
+    end
+
+    subgraph GOVFED["Federated Computational Governance"]
+        STD["Shared standards:<br/>interoperability · security · quality"]
+    end
+
+    DA_DP -.uses.-> PLATFORM
+    DB_DP -.uses.-> PLATFORM
+    DC_DP -.uses.-> PLATFORM
+    DA_DP -.conforms to.-> GOVFED
+    DB_DP -.conforms to.-> GOVFED
+    DC_DP -.conforms to.-> GOVFED
+
+    DA_DP --> DC_DP
+    DB_DP --> DC_DP

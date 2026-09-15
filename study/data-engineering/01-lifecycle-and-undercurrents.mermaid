@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph L["Data Engineering Lifecycle"]
+        direction LR
+        GEN["Generation<br/>Source Systems"] --> ING["Ingestion"]
+        ING --> ST1[("Storage")]
+        ST1 --> TR["Transformation"]
+        TR --> ST2[("Storage")]
+        ST2 --> SV["Serving"]
+        SV --> CONS["Analytics · ML · Reverse ETL"]
+    end
+
+    subgraph U["Undercurrents — cut across every stage"]
+        direction LR
+        SEC["Security"] --- DM["Data<br/>Management"] --- DOPS["DataOps"] --- DARCH["Data<br/>Architecture"] --- ORCH["Orchestration"] --- SWE["Software<br/>Engineering"]
+    end
+
+    U -.supports.-> L

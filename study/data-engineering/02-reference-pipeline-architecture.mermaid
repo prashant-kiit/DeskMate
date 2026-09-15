@@ -1,0 +1,71 @@
+flowchart TB
+    subgraph SRC["Source Systems"]
+        direction TB
+        OLTP["OLTP Databases"]
+        APIS["SaaS / APIs"]
+        FILES["Files & Logs"]
+        IOT["IoT / App Events"]
+    end
+
+    subgraph ING["Ingestion Layer"]
+        direction TB
+        CDC["CDC Connectors"]
+        BATCH["Batch Extractors"]
+        STREAM["Stream Producers<br/>Kafka / Kinesis / Pub/Sub"]
+    end
+
+    subgraph RAW["Raw / Landing Zone (Object Storage)"]
+        RAWZ["Immutable raw data,<br/>schema-on-read"]
+    end
+
+    subgraph TRANS["Transformation Layer"]
+        direction TB
+        ELT["ELT Engine<br/>dbt / Spark / SQL"]
+        STRPROC["Stream Processor<br/>Flink / Spark Streaming"]
+    end
+
+    subgraph CUR["Curated Storage (Warehouse / Lakehouse)"]
+        BRONZE["Bronze — raw, conformed"]
+        SILVER["Silver — cleaned, modeled"]
+        GOLD["Gold — business aggregates"]
+        BRONZE --> SILVER --> GOLD
+    end
+
+    subgraph SERVE["Serving Layer"]
+        direction TB
+        BI["BI / Dashboards"]
+        ML["ML Feature Store"]
+        RETL["Reverse ETL"]
+        SEM["Semantic / Metrics Layer"]
+    end
+
+    subgraph GOV["Cross-Cutting Undercurrents"]
+        direction LR
+        ORC["Orchestration"]
+        CAT["Catalog & Lineage"]
+        OBS["Observability & Data Quality"]
+        SECU["Security & Access Control"]
+    end
+
+    OLTP --> CDC
+    APIS --> BATCH
+    FILES --> BATCH
+    IOT --> STREAM
+
+    CDC --> RAWZ
+    BATCH --> RAWZ
+    STREAM --> STRPROC
+
+    RAWZ --> ELT
+    ELT --> BRONZE
+    STRPROC --> BRONZE
+
+    GOLD --> BI
+    GOLD --> ML
+    GOLD --> RETL
+    GOLD --> SEM
+
+    GOV -.governs.-> ING
+    GOV -.governs.-> TRANS
+    GOV -.governs.-> CUR
+    GOV -.governs.-> SERVE

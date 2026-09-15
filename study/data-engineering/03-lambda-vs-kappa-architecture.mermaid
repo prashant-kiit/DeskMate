@@ -1,0 +1,19 @@
+flowchart TB
+    subgraph LAMBDA["Lambda Architecture"]
+        direction LR
+        SRC1["Data Source"] --> SPLIT{"Dual Write"}
+        SPLIT --> BATCHL["Batch Layer<br/>full recompute · high accuracy · high latency"]
+        SPLIT --> SPEEDL["Speed Layer<br/>stream processing · low latency · approximate"]
+        BATCHL --> BATCHVIEW["Batch Views"]
+        SPEEDL --> RTVIEW["Real-Time Views"]
+        BATCHVIEW --> SERVE1["Serving Layer<br/>merges both views"]
+        RTVIEW --> SERVE1
+    end
+
+    subgraph KAPPA["Kappa Architecture"]
+        direction LR
+        SRC2["Data Source"] --> LOG["Immutable Event Log<br/>Kafka / Pulsar"]
+        LOG --> SP["Single Stream<br/>Processing Engine"]
+        SP --> VIEW["Serving Views"]
+        LOG -.->|"Replay for<br/>reprocessing"| SP
+    end
