@@ -10,79 +10,101 @@
 ### Memory Layer (Memory Taxonomy) Architecture
 - LLM are Stateless Machines ie. Do not Store Memory. So, a Agentic Memory Layer is required.
 - Types of Agent Memory :
+    - Main Memory
+        - Factual Memory:
+            - All Data Fed into System Prompt as Context
+            - Business Memory:
+                - Lexical Memory:
+                    - User + Agent + Tool + Business Factual Information (Like Auth)
+                    - SQL
+                    - ROM Based
+                    - MetaData (CreatedAt, UpdatedAt, CreatedBy, DeDuplication Hash, Lemma Version, Expiration Date)
+                - Semantic Memory:
+                    - User + Agent + Tool + Business Factual Information
+                    - VectorDB
+                    - ROM Based
+                    - Vectors
+                - GraphDB :
+                    - Knowledge Graph
+                    - GraphDB [Knowledge Graph of Entity + Relations] (Entity Memory)
+                    - Supports the Procedure Memory on every turn of the loops
+                    - Query-Response on outer most loops
+                    - Stores Procedure and Converstion in the Session
+                    - Used for Guided Agentic Processing
+                - [Single Entity: Lexical and Semantic Memory Link by RecordID (Hashed) and VectorID (Hashed)]
+            - User Memory:
+                - User Details
+                - SQL
+                - ROM Based
+                - Conflict Resolution Based:
+                    - Provenance
+                    - Recency
+            - Agent Memory:
+                - Agent Details
+                - SQL
+                - ROM Based
+                - Conflict Resolution Based:
+                    - Provenance
+                    - Recency
+            - Tool Memory:
+                - MCP Tool/Server Details
+        - Procedural Memory:
+            - Agent and Tool Code File that later Ran in Sandbox
+            - ROM based
+    
     - Working Memory (Short Term Memory): 
         - RAM
         - State of Flow Graph
-    - Lexical Memory (Main Memory):
-        - User Info (Like Auth)
-        - SQL
-        - ROM Based
-        - MetaData (CreatedAt, UpdatedAt, CreatedBy, DeDuplication Hash, Lemma Version, Expiration Date)
-    - Semantic Memory (Main Memory):
-        - System Prompt
-        - VectorDB
-        - ROM Based
-        - Vectors
-    [Single Entity: Lexical and Semantic Memory Link by RecordID (Hashed) and VectorID (Hashed)]
-    - Procedural Memory:
-        - GraphDB [Knowledge Graph of Entity + Relations] (Entity Memory)
-            - Procedure on every turn of the loops
-            - Query-Response on outer most loops
-            - Stores Procedure and Converstion in the Session
-            - Used for Guided Agentic Processing
-        - Agent and Tool Code File
-        - ROM based
     - Session Memory:
-        - Sliding Window Ranged Conversations
+        - Sliding Window Ranged over Session
         - SQL
         - ROM Based
+        - ***Memory Ingestion*** Checkpint Based Memory: 
+            - Conversation (Query and Response) [User Memory]
+            - Intermidary Steps from Query to Response [Agent Memory or Tool Memory]
     - Episodic Memory (Long Term Memory) / (Secondary Memory)
-        - Past Conversation
+        - Past Sessions Trasactions
         - Sessions Combined
-        - Compressed/Summarized Past Sessions beyond Sliding Window (Session/Converational Memory) using a Background Job for Memory Ingestion
+        - ***Memory Ingestion*** Compressed/Summarized Past Sessions beyond Sliding Window (Session Memory) using a Background Job for Memory Ingestion
             - Lexical component and Semantical component (Hybrid)
-            - Input: User Memory Summary + Recent Conversation from Sliding Window from Session Memory + Creation Date + Similar Memory from Current Epidodic Memory
+            - Input: User Memory Summary + Recent Session Trasactions from Sliding Window from Session Memory + Creation Date + Similar Memory from Current Episodic Memory
         - Different/External to Conversational Memory
         - Lexical + Semantic [Single Entity] using Possibly a Knowledge Graph
         - Here, Sliding Window is build using 
             - Most High Scoring Session Memory (Procedural and Converstional Memory)
             - Time Based
-    - User Memory (Factual):
-        - User Details
-        - SQL
-        - ROM Based
-        - Conflict Resolution Based:
-            - Provenance
-            - Recency
-    - Agent Memory (Factual):
-        - Agent Details
-        - SQL
-        - ROM Based
-        - Conflict Resolution Based:
-            - Provenance
-            - Recency
     - Log Memory:
         - User Activity Log
         - System/Application Log
         - Audit Log
-    - Memory Cache:
-        - Query-Response Cache
-        - Lexical or Semantic Nature
-        - Expiration;
-            - Time
-            - Scoreing
-            - Usage Frequeny
-- Memory Retrieval
-    - [User Prompt + System Prompt] + [Tools (For Each Step in COT/Plan) + Agents (For Each Step in Plan/COT)]
-    - Plan the Steps and then Execute those Steps, that makes the whole flow Multi-Turn [Plan and Execute Design]
-    - For Each Plan-Step, generate a Chain of Thought that makes each step Multi-Turn
-    - The COT-Steps will be guided by Knowledge Graph's Entity Relationships [Reason and Act and Observe Design]
-        - Search first happens in Main Memory then in Similar/Identical (hybrid) in Secondary Memory based on Similarity/Identicality Thresholded-Score
-            - Main Memory (Short Term / Session): KnowledgeGraph -> SQL Records + VectorDB Vectors
-            - Secondary Memory (Long Term / Episodic): KnowledgeGraph -> SQL Records + VectorDB Vectors
-        - Reranking using Lexical or Semantic Method + an Offset Marker like Top N
-        - ***Note***: Here Lexical Operation with happen in SQL Metadata and Semantical Operation in VectorDB Vector Space
-    - Context : User Prompt + System Prompt (Role + Objective + Method + Guardrails + Tone + Output Format) + Retreived Memory + User Memory + Agent Memory
+
+### Memory Storage Layer
+- Agent Memory Cache:
+    - Query-Response Cache
+    - Lexical or Semantic Nature
+    - Expiration;
+        - Time
+        - Scoreing
+        - Usage Frequeny    
+        - ***Weight Bias -> Move Down by One Layer -> Eject***
+- Reference to Other Memory Storage Layers
+    - Computer Memory : Cache <-> RAM <-> Disk <- Data Sources
+    - Application Memory : In Memory Cache <-> DataBase -> Data Warehouse <- Data Sources
+    - Agent Memory : Cache <- Session -> Main -> Episodic 
+                                          ^
+                                     Data Sources
+
+### Memory Retrieval
+- [User Prompt + System Prompt] + [Tools (For Each Step in COT/Plan) + Agents (For Each Step in Plan/COT)]
+- Plan the Steps and then Execute those Steps, that makes the whole flow Multi-Turn [Plan and Execute Design]
+- For Each Plan-Step, generate a Chain of Thought that makes each step Multi-Turn
+- The COT-Steps will be guided by Knowledge Graph's Entity Relationships [Reason and Act and Observe Design]
+    - Search first happens in Main Memory then in Similar/Identical (hybrid) in Secondary Memory based on Similarity/Identicality Thresholded-Score
+        - Main Memory (Short Term / Session): KnowledgeGraph -> SQL Records + VectorDB Vectors
+        - Secondary Memory (Long Term / Episodic): KnowledgeGraph -> SQL Records + VectorDB Vectors
+    - Reranking using Lexical or Semantic Method + an Offset Marker like Top N
+    - ***Note***: Here Lexical Operation with happen in SQL Metadata and Semantical Operation in VectorDB Vector Space
+- Context : User Prompt + System Prompt (Role + Objective + Method + Guardrails + Tone + Output Format) + Retreived Memory (Business Memory + User Memory + Agent Memory)
 
 ---
 
