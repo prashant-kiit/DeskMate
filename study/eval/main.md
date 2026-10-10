@@ -17,7 +17,7 @@
     - Entropy of Model seen in reference to DataSet
     - Model Entropy vs DataSet Entropy
     - Called KL Divergence : Kullback–Leibler (KL) divergence measures how much one original probability distribution differs from a reference probability distribution
-    - Perplexity = Expentential Cross Entropy
+    - Perplexity = Expontential Cross Entropy
     - Three general rules for what affects expected perplexity:
         - More structured data (Gives Better Reasoning) → lower perplexity
         - Longer context (Gives More Data as Background for Reasoning to happens) → lower perplexity
