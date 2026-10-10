@@ -2,7 +2,7 @@
 
 ### Basics
 - Data
-    - Training Data (60%) + Evaluation Data (20%) + Some (20%)
+    - Training Data (60%) + Evaluation Data (20%) + Cross Validation (20%)
     - Scale (Normalize and Regularize)
     - Cross Validation: Using 20% Data from Training Data to Evaluate in next Epoch
 - Reinforcement Learning:
