@@ -24,7 +24,7 @@
 - Parallel CPU + GPU Processing
 - Model: Load Model -> Quantize & Compress (In Terms of Bits and Bytes) -> Initiate Model
 - Data: Load Data -> Process (Clean, Tokenize etc.) -> Initiate Data
-- FF Hyperparameter: Ranking, Weight & Bias, Query & Key & Value Delta Target, Scaling/Normalization, Scaling/Regularization, Batch Size, Gradient Acculumation Steps, GPU Core Count, Learning Rate, Epochs, Checkpoints & Logging 
+- FF Hyperparameter: Ranking, Weight & Bias, Query & Key & Value Delta Target, Scaling/Normalization, Scaling/Regularization, Batch Size, Gradient Acculumation Steps, GPU Core Count, Learning Rate & Warmup, Epochs, Estimators Count, NN Depth, Checkpoints & Logging 
 - Trainer: Model + Data + Hyperparameters
 - Record Steps and Loss
 
