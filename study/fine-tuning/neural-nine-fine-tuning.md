@@ -24,7 +24,7 @@
 - Parallel CPU + GPU Processing
 - Model: Load Model -> Quantize & Compress (In Terms of Bits and Bytes) -> Initiate Model
 - Data: Load Data -> Process (Clean, Tokenize etc.) -> Initiate Data
-- FF Hyperparameter: Ranking, Weight & Bias, Query & Key & Value Delta Target, Scaling/Normalization, Scaling/Regularization, Batch Size, Gradient Acculumation Steps, GPU Core Count, Learning Rate & Warmup, Epochs, Estimators Count, NN Depth, Checkpoints & Logging 
+- FF Hyperparameter: Intrinsic Ranking, Weight & Bias, Query & Key & Value as Delta Target, Scaling/Normalization of Training Data, Scaling/Regularization of Training Data, Batch Size, Gradient Acculumation Steps, GPU Core Count, Learning Rate & Warmup (Degree of Delta in Weights & Biases after Each Training Step), Epochs, Estimators Count (No of Parallel Models), NN Depth (Influence of Delta), Checkpoints & Logging 
 - Trainer: Model + Data + Hyperparameters
 - Record Steps and Loss
 
@@ -48,7 +48,7 @@
 ### Flash Attention vs Self Attention (Standard)
 - Fast vs Slow
 - Input and Output Same vs Input and Output Same
-- More CPU and Memory vs Less CPU and Memory
+- Less CPU and Memory vs More CPU and Memory
 - Tiling vs No Tiling
 - Memory Bound vs Compute Bound
 - Analog:
