@@ -56,3 +56,9 @@
     * ***vs***
     * You walk to the fridge, grab one ingredient, walk back to the cutting board, chop it, walk back to the fridge to put it away, and repeat this for all N × N combinations. The constant walking (memory traffic) slows you down completely.
 - For I/O Interactive Systems vs For Heavy Processing Systems
+
+----
+
+### Notes
+- Normalize: Fair distribution of Kind of Data Point
+- Regularize: Prevent do much of generalization
