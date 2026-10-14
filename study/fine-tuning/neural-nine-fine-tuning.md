@@ -61,4 +61,4 @@
 
 ### Notes
 - Normalize: Fair distribution of Kind of Data Point
-- Regularize: Prevent do much of generalization
+- Regularize: Prevent do much of generalization (Fitness vs Noise)
