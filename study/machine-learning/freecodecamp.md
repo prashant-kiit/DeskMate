@@ -18,37 +18,38 @@
     - Recall - Groundedness
     - Accuracy - Correctness
 
-        
-Actual\Predicted  Postive Negative
-Sick              A (TP)  B (FN)
-Healthy           C (FP)  D (TN)
+- Bayes Theorem 
+    - P(H|E) / P(E|H) = P(H) / P(E)
+    - Information flow is birectional: E -> H and H -> E
+    - Stronger of H or E will win
+    - P(H|E) = P(E|H).P(H)/(P(H).P(E|H)+P(H').P(E|H'))
+    - Reference: https://www.youtube.com/watch?v=HZGCoVF3YvM    
+    - Example
 
-P(FP) = C / Total = 0.05
-P(FN) = B / Total = 0.01
-P(Disease) = A + B / Total = 0.1
+    | Actual \ Predicted | Positive | Negative |
+    |---|---|---|
+    | Sick | A (TP) | B (FN) |
+    | Healthy | C (FP) | D (TN) |
 
-P(Disease | Postive Test) = A / A + C = ?
+    P(FP) = C / Total = 0.05
+    P(FN) = B / Total = 0.01
+    P(Disease) = A + B / Total = 0.1
 
-P(Disease | Postive Test) 
-= A / A + C
-= (A / Total) / ((A + C) / Total)
-= P(TP) / (A / Total + C / Total)
-= P(TP) / (P(TP) + P(FP))
-= 1 / (1 + P(FP)/P(TP))
-= 1 / (1 + P(FP)/(P(Disease) - P(FN)))
-= 1 / (1 + 0.05/(0.1 - 0.01))
-= 0.64285714285
+    P(Disease | Postive Test) = A / A + C = ?
 
-A + B / Total = A / Total + B / Total
-P(Disease) = P(TP) + P(FN)
-P(TP) = P(Disease) - P(FN)
+    P(Disease | Postive Test) 
+    = A / A + C
+    = (A / Total) / ((A + C) / Total)
+    = P(TP) / (A / Total + C / Total)
+    = P(TP) / (P(TP) + P(FP))
+    = 1 / (1 + P(FP)/P(TP))
+    = 1 / (1 + P(FP)/(P(Disease) - P(FN)))
+    = 1 / (1 + 0.05/(0.1 - 0.01))
+    = 0.64285714285
 
-Bayes Theorem:
-- P(H|E) / P(E|H) = P(H) / P(E)
-- Information flow is birectional: E -> H and H -> E
-- Stronger of H or E will win
-- P(H|E) = P(E|H).P(H)/(P(H).P(E|H)+P(H').P(E|H'))
-- Reference: https://www.youtube.com/watch?v=HZGCoVF3YvM
+    A + B / Total = A / Total + B / Total
+    P(Disease) = P(TP) + P(FN)
+    P(TP) = P(Disease) - P(FN)
 
 Note:
 - Intelligence
