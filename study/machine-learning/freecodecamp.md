@@ -3,7 +3,7 @@
 
 
 ### Topics:
-- Features and Label
+- Features (X) and Label (Y)
 - Model Training
 - Data Preparation 
     - Training Data
@@ -23,8 +23,16 @@
     - Information flow is birectional: E -> H and H -> E
     - Stronger of H or E will win
     - P(H|E) = P(E|H).P(H)/(P(H).P(E|H)+P(H').P(E|H'))
-    - Reference: https://www.youtube.com/watch?v=HZGCoVF3YvM    
-    - Example
+    - P(H) -> Prior, P(E) -> Evidence, P(E|H) -> Likelihood, P(H|E) -> Posterior
+    - Reference: https://www.youtube.com/watch?v=HZGCoVF3YvM   
+    - Proof:
+
+    P(A|B) = P(A ∩ B) / P(B)
+    Similarly,
+    P(B|A) = P(A ∩ B) / P(A)
+    P(A ∩ B) = P(B|A) × P(A)
+    P(A|B) = [P(B|A) × P(A)] / P(B)
+    - Example:
 
     | Actual \ Predicted | Positive | Negative |
     |---|---|---|
@@ -50,6 +58,9 @@
     A + B / Total = A / Total + B / Total
     P(Disease) = P(TP) + P(FN)
     P(TP) = P(Disease) - P(FN)
+    - Navie Bayes Theorem: All X (Features) are independent of each other
+    - **P(C|X₁, ..., Xₙ) ∝ P(C) × ∏ P(Xᵢ|C)**
+
 
 Note:
 - Intelligence
