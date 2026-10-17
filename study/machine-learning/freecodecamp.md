@@ -58,8 +58,21 @@
     A + B / Total = A / Total + B / Total
     P(Disease) = P(TP) + P(FN)
     P(TP) = P(Disease) - P(FN)
-    - Navie Bayes Theorem: All X (Features) are independent of each other
+- Navie Bayes Theorem: 
+    - All X (Features) are independent of each other
     - **P(C|X₁, ..., Xₙ) ∝ P(C) × ∏ P(Xᵢ|C)**
+- MAP
+    - Maximum A Posteriori
+    - Argmax P(C) × ∏ P(Xᵢ|C) among all values if i
+
+Clustering:
+- Recursively Tile/Mine the Vector Space 
+- Classify Vector Points into Classes/Categories/Clsuters using below methods:
+    - Distance Formula
+    - Cosine Similarity
+    - Navie Bayesian Theorem
+- Having a Max Threshold to Prevent Overfitting (Too Less Contextuatlization, Too More Generalization) [Vector Regualarization]
+
 
 
 Note:
